@@ -233,4 +233,4 @@ Now that you've completed your first migration:
 4. **Customize**: Modify the import scripts for specific needs.
 
 
-IMPORTANT: The above process broke down the process in distinct steps. To have AEMY run all steps in sequence, you can use `Catalyse` flow. See this [video] (https://adobe.sharepoint.com/sites/AEMDemos/_layouts/15/stream.aspx?id=%2Fsites%2FAEMDemos%2FShared%20Documents%2Fsites%2Faemy%2Dsites%2Fcatalyse%2Dvideo%2Emov&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ebd7f215b%2D9008%2D4c54%2D97ed%2Db42272ef8117) to understand how it works. Happy Catalyzing! 
+IMPORTANT: The above process broke down the process in distinct steps. To have AEMY run all steps in sequence, you can use `Catalyse` flow. See this [video](https://adobe.sharepoint.com/sites/AEMDemos/_layouts/15/stream.aspx?id=%2Fsites%2FAEMDemos%2FShared%20Documents%2Fsites%2Faemy%2Dsites%2Fcatalyse%2Dvideo%2Emov&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ebd7f215b%2D9008%2D4c54%2D97ed%2Db42272ef8117) to understand how it works. Happy Catalyzing! 
