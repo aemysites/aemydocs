@@ -36,6 +36,8 @@ In this step, AEMY will discover all pages on the website and generate a compreh
 4. **Description**: `Analyze https://www.wknd-trendsetters.site/` (this is your prompt towards AEMY)
 5. Click **Create**
 
+<img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 16 05" src="https://github.com/user-attachments/assets/6d51ade6-b631-4dbc-be63-9fdd26706087" />
+
 Additionally, you need to add some labels for AEMY to listen to your issue. The possible ones that you can use are:
 - **`aemy-help`**: Enables AEMY to monitor the issue and respond to comments.
 - **`aemy-go`**: Instructs AEMY to carry out the action it has identified. When using this label, set it at the same time as the `aemy-help` label.
@@ -55,6 +57,8 @@ After that, AEMY will immediately add the `aemy-running` label to indicate that 
 
 **Summary**: With the `Analyze` prompt, AEMY generated the `tools/importer/site-urls.json` file containing all the URLs it found for the provided site.
 
+<img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 20 10" src="https://github.com/user-attachments/assets/d0ac4ce3-e485-4c95-b72d-99f5ce4c0c8d" />
+
 **Reference**: [View the full documentation of the Analyze command](aemy-prompts.md#analyze-website)
 
 ## Step 2: Inventory
@@ -67,6 +71,8 @@ In this step, AEMY will identify all unique blocks that the site is made out of.
 4. **Labels**: `aemy-help`, `aemy-go`, `aemy-merge` (this time, let's apply all three labels right away)
 5. Click **Create**
 
+<img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 40 10" src="https://github.com/user-attachments/assets/bde3b20a-39f4-4275-968b-7f53b9f28a74" />
+
 When you create this issue, the `aemy-go` label tells AEMY to automatically start identifying all the unique blocks on your website.
 
 Please note: this process can take some time, typically about 20 to 40 minutes.
@@ -74,6 +80,8 @@ Please note: this process can take some time, typically about 20 to 40 minutes.
 Because you've also added the `aemy-merge` label, the resulting pull request will be merged automatically and this issue closed as soon as the task is finished. You'll see this when the `aemy-done` label appears.
 
 **Summary**: With the `Generate inventory` prompt, AEMY scanned all the URLs listed in `tools/importer/site-urls.json` and generated `tools/importer/inventory.json`, which lists all the unique visual blocks it found.
+
+<img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 42 22" src="https://github.com/user-attachments/assets/3ebb197e-1cab-4acf-b51f-97297c1cadb0" />
 
 **Reference**: [Inventory command details](aemy-prompts.md#block-inventory)
 
@@ -87,6 +95,8 @@ In this step, AEMY will generate import scripts for each block type, so that the
 4. **Labels**: `aemy-help`, `aemy-go`
 5. Click **Create**
 
+<img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 43 37" src="https://github.com/user-attachments/assets/88b4d9a9-e279-401a-8b79-2d0d262672e9" />
+
 This task typically takes 5 to 10 minutes.
 
 Once the task completes, you need to go to the pull request to merge it since you haven't added the `aemy-merge` label. You can do so by following the pull request link in AEMY's comment. There, in AEMY's comment, you can see the list of all scripts it generated in `/tools/importer/`.
@@ -94,6 +104,8 @@ Once the task completes, you need to go to the pull request to merge it since yo
 **Note: DO NOT MERGE the pull request till it has the `aemy-done` label applied to it.**
 
 Making sure that the pull request has the `aemy-done` label, you can now merge and close the pull request.
+
+<img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 45 32" src="https://github.com/user-attachments/assets/686489ac-7707-4984-9d3f-2af737139359" />
 
 **Summary**: With the `Import script` prompt, AEMY created parser and transformer scripts for each block type identified in the `tools/importer/inventory.json`, which will allow in the next step to reliably convert the content from your site to Edge Delivery blocks.
 
