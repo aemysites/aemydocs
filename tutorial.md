@@ -147,7 +147,7 @@ In this step, AEMY will upload the generated documents to our SharePoint folder.
 4. **Labels**: `aemy-help`, `aemy-go`
 5. Click **Create**
 
-<img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 52 35" src="https://github.com/user-attachments/assets/78520da7-969b-49df-a94c-15ac76796eeb" />
+<img width="1174" height="1030" alt="Screenshot 2025-07-10 at 19 05 50" src="https://github.com/user-attachments/assets/ceffc74c-7c34-498a-8015-0ab4b89c7a53" />
 
 Once AEMY is done with this task:
 1. Close this issue.
