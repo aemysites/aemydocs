@@ -1,26 +1,42 @@
-# aemydocs
+# Experience Catalyst
 
-This is a project created by AEMY.
+Transform your website to Adobe Experience Manager Edge Delivery Services with AI-powered automation.
 
-## Environments
+## What is Experience Catalyst?
 
-- Preview: https://main--aemydocs--aemysites.aem.page/
-- Live: https://main--aemydocs--aemysites.aem.live/
+Experience Catalyst is Adobe's AI-powered migration tool that transforms existing websites into high-performance Edge Delivery Services sites. Instead of months of manual migration work, Experience Catalyst uses intelligent automation to complete the process in hours or days while maintaining your site's design and functionality.
 
-## Installation
+### Why It Matters
 
-```sh
-npm i
-```
+- **Faster Time to Market**: Launch your modernized site in days, not months
+- **Reduced Migration Costs**: Automated conversion eliminates 80% of manual effort
+- **Performance Excellence**: Achieve perfect Lighthouse scores and Core Web Vitals
+- **Future-Ready Architecture**: Built for the AI era with Edge Delivery Services
 
-## Linting
+### Key Resources
 
-```sh
-npm run lint
-```
+- [What is Edge Delivery Services?](https://www.aem.live/) - Adobe's modern web delivery platform
+- [AEMY Overview](overview.md) - Understanding the AI assistant and migration workflow
+- [Step-by-Step Tutorial](tutorial.md) - Get started with your first migration
 
-## Local development
+## Code Less, Ship More
 
-1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/aem-cli`
-1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000/`)
-1. Open the `aemydocs` directory in your favorite IDE and start coding :)
+Experience Catalyst fundamentally changes how developers approach website migration. Instead of manually recreating templates, writing parsers, and mapping content, you leverage AEMY's AI capabilities to handle the repetitive work while maintaining full control over the output.
+
+- **GitHub-Native Workflow**: Work with AEMY through issues and PRs
+- **Full Control**: Review and modify all generated code
+- **Modern Stack**: Edge Delivery Services, Git-based content, component architecture
+
+## Get Started
+
+### Getting Started
+- [Tutorial](tutorial.md) - Step-by-step migration guide
+
+### AEMY - Github Integrated AI Agent
+- [AEMY Overview](overview.md) - Understanding the AI assistant
+- [AEMY Prompt Reference](aemy-prompts.md) - Complete command syntax
+
+
+---
+
+*Experience Catalyst is available as Early Access Technology. Contact your Adobe representative for access.*
