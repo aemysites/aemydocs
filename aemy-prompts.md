@@ -606,8 +606,6 @@ Both syntaxes are equally valid. The simplified syntax is often easier to rememb
 
 ### Pull Request Management
 
-- AEMY creates PRs in DRAFT state by default
-- If a PR shows as "Draft", click "Ready for review" before merging
 - Always check PR status before attempting to merge
 - Wait for AEMY to complete work before merging (check for activity in PR)
 
