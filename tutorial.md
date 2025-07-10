@@ -59,7 +59,7 @@ After that, AEMY will immediately add the `aemy-running` label to indicate that 
 
 <img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 20 10" src="https://github.com/user-attachments/assets/d0ac4ce3-e485-4c95-b72d-99f5ce4c0c8d" />
 
-**Reference**: [View the full documentation of the Analyze command](aemy-prompts.md#analyze-website)
+**Reference**: [Analyze command details](aemy-prompts.md#analyze-website)
 
 ## Step 2: Inventory
 
@@ -109,7 +109,7 @@ Making sure that the pull request has the `aemy-done` label, you can now merge a
 
 **Summary**: With the `Import script` prompt, AEMY created parser and transformer scripts for each block type identified in the `tools/importer/inventory.json`, which will allow in the next step to reliably convert the content from your site to Edge Delivery blocks.
 
-**Reference**: [Import script command details](aemy-prompts.md#import-scripts)
+**Reference**: [Import script command details](aemy-prompts.md#import-script)
 
 ## Step 4: Import and upload content
 
@@ -135,7 +135,7 @@ After this task is finished, you won't get a pull request as for the previous st
 
 **Summary**: With the `Import content` prompt, AEMY used `tools/importer/inventory.json` to go through all the blocks on your site and applying the corresponding import scripts. It generated a Zip file containing all the content converted into Edge Delivery documents.
 
-**Reference**: [Import content](aemy-prompts.md#import-content)
+**Reference**: [Import content command details](aemy-prompts.md#import-content)
 
 ### Upload content
 
@@ -156,7 +156,7 @@ Once AEMY is done with this task:
 
 <img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 54 34" src="https://github.com/user-attachments/assets/88781614-fb39-40cd-8e5a-56b814e72eae" />
 
-**Reference**: [Upload content](aemy-prompts.md#upload-content)
+**Reference**: [Upload content command details](aemy-prompts.md#upload-content)
 
 ## Step 5: Branding
 
@@ -181,7 +181,7 @@ Once AEMY is done with this task:
 
 <img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 57 12" src="https://github.com/user-attachments/assets/8931e839-94e6-4aeb-8221-74772aafdb16" />
 
-**Reference**: [Brand fonts](aemy-prompts.md#brand-fonts)
+**Reference**: [Branding command details](aemy-prompts.md#branding)
 
 ## Step 6: Style block
 
@@ -211,7 +211,7 @@ Once AEMY is done with this task (Check for `aemy-done` label on the PR):
 - Repeat Step 6 for the rest of the blocks in the `index.docx` page.
 - While you can style distinct blocks parallelly, don't style variants of the same block at the same time. e.g `Columns (columns30)` and `Columns (columns40)`
 
-**Reference**: [Style block](aemy-prompts.md#style-block)
+**Reference**: [Style block command details](aemy-prompts.md#style-block)
 
 ## Next Steps
 
