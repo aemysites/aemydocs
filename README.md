@@ -16,7 +16,7 @@ Experience Catalyst is Adobe's AI-powered migration tool that transforms existin
 ### Key Resources
 
 - [What is Edge Delivery Services?](https://www.aem.live/) - Adobe's modern web delivery platform
-- [AEMY Overview](overview.md) - Understanding the AI assistant and migration workflow
+- [AEMY Reference](aemy-reference.md) - Understanding the AI assistant and migration workflow
 - [Step-by-Step Tutorial](tutorial.md) - Get started with your first migration
 
 ## Code Less, Ship More
@@ -33,7 +33,7 @@ Experience Catalyst fundamentally changes how developers approach website migrat
 - [Tutorial](tutorial.md) - Step-by-step migration guide
 
 ### AEMY - Github Integrated AI Agent
-- [AEMY Overview](overview.md) - Understanding the AI assistant
+- [AEMY Reference](aemy-reference.md) - Understanding the AI assistant
 - [AEMY Prompt Reference](aemy-prompts.md) - Complete command syntax
 
 
