@@ -1,0 +1,23 @@
+{
+  "name": "sta-azure-helper",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "sta-azure-helper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "keywords": [
+    "STA",
+    "Experience Catalyst",
+    "SharePoint"
+  ],
+  "author": "Experience Catalyst",
+  "license": "ISC",
+  "description": "Get auth for SharePoint",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "node-forge": "^1.3.1"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "sta-status-callback-action",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "sta-status.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "keywords": ["STA", "Experience Catalyst", "Status"],
+  "author": "Experience Catalyst",
+  "license": "ISC",
+  "description": "Send a post to report STA job status",
+  "dependencies": {
+    "@actions/core": "^1.11.1"
+  }
+}

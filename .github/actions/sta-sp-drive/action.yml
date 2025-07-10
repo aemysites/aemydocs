@@ -1,0 +1,22 @@
+name: "Fetch site and drive id"
+description: "Use Graph API to fetch the site and drive id for a given URL."
+author: "Experience Catalyst"
+inputs:
+  token:
+    description: "The SP access token"
+    required: true
+  sp_host:
+    description: "The host of SharePoint (i.e. adobe.sharepoint.com)"
+    required: true
+  sp_site_path:
+    description: "The site path to the SharePoint site (i.e. /sites/AEMDemos)"
+    required: true
+  sp_folder_path:
+    description: "The folder path to upload the file to (i.e. /Shared%20Documents/sites/my-site)"
+    required: true
+outputs:
+  drive_id:
+    description: "The ID of the drive"
+runs:
+  using: 'node20'
+  main: 'sta-sp-drive.js'

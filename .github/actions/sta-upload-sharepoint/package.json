@@ -1,0 +1,23 @@
+{
+  "name": "sta-sharepoint-upload-action",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "sta-sharepoint-upload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "keywords": [
+    "STA",
+    "Experience Catalyst",
+    "SharePoint Upload"
+  ],
+  "author": "Experience Catalyst",
+  "license": "ISC",
+  "description": "Upload the Import Zip contents to SharePoint",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "mime-types": "^3.0.1"
+  }
+}

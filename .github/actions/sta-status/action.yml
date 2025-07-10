@@ -1,0 +1,23 @@
+name: "Send a status"
+description: "Post a status message for a job."
+author: "Experience Catalyst"
+inputs:
+  callbacks:
+    description: "The callbacks to use to post the status"
+    required: true
+  context:
+    description: "Context for the STA workflow"
+    required: true
+  message:
+    description: "The message to post"
+    required: true
+  status_type:
+    description: "The type of the status"
+    required: true
+    default: 'progress'
+  agent_name:
+    description: "The agent name to help identify things in logs"
+    required: false
+runs:
+  using: 'node20'
+  main: 'sta-status.js'

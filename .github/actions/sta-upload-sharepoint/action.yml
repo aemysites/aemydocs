@@ -1,0 +1,34 @@
+name: "Upload to SharePoint"
+description: "Upload files to SharePoint"
+author: "Experience Catalyst"
+inputs:
+  access_token:
+    description: "Access token for Azure (SharePoint)."
+    required: true
+  drive_id:
+    description: "The SharePoint destination top-level drive ID."
+    required: true
+  folder_id:
+    description: "The SharePoint destination folder ID."
+    required: true
+  zip_dir:
+    description: "The folder holding the zip and its contents."
+    required: true
+  delay:
+    description: "The delay between file uploads in milliseconds to avoid throttling. Default: 2000"
+    required: false
+    default: "2000"
+outputs:
+  upload_successes:
+    description: "The number of upload successes."
+  upload_list:
+    description: "The relative paths of the files that succeeded to be uploaded."
+  upload_failures:
+    description: "The number of upload failures."
+  upload_failed_list:
+    description: "The list of files that failed to upload."
+  error_message:
+    description: "Error message if the operation could not be completed"
+runs:
+  using: 'node20'
+  main: 'sta-sharepoint-upload.js'

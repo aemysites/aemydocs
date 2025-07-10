@@ -1,0 +1,29 @@
+name: "Get access token for Azure"
+description: "Get access token for Azure"
+author: "Experience Catalyst"
+inputs:
+  tenant_id:
+    description: "The tenant id"
+    required: true
+  client_id:
+    description: "The client id"
+    required: true
+  key:
+    description: "Base64-encoded PFX content associated with the Azure app"
+    required: true
+  password:
+    description: "Password to decrypt the PFX content. Mandatory if the cert was created with a password."
+    required: false
+  thumbprint:
+    description: "The Azure app's certificate thumbprint"
+    required: true
+  duration:
+    description: "Estimate of the number of seconds that the access_token should be valid for. Default is 3600 seconds."
+    default: "3600"
+    required: false
+outputs:
+  access_token:
+    description: "OAuth 2.0 access token from Azure AD"
+runs:
+  using: 'node20'
+  main: 'sta-azure-helper.js'
