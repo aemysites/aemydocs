@@ -1,0 +1,23 @@
+name: "Upload XWalk"
+description: "Upload the Import Zip for XWalk"
+author: "Experience Catalyst"
+inputs:
+  upload_token:
+    description: "The base64-encoded token to use for the upload."
+    required: true
+  root_mountpoint:
+    description: "The target of the upload. This is the Adobe AEM Cloud URL."
+    required: true
+  zip_path:
+    description: "The path to the contents of the Import zip"
+    required: true
+  zip_name:
+    description: "The path in the zip_path contents folder to the xwalk zip package"
+    required: false
+  skip_assets:
+    description: "The agent name to help identify things in logs"
+    required: false
+    default: 'false'
+runs:
+  using: 'node20'
+  main: 'sta-xwalk-upload.js'

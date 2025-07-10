@@ -1,0 +1,180 @@
+name: STA-AEMY - Upload for XWalk
+
+description: |
+  Uploads the import zip file for XWalk. The import zip file is downloaded from a URL and extracted and uploaded for XWalk.
+  The action is triggered by a workflow dispatch event with inputs as follows.
+
+env:
+  XWALK_UPLOAD_TOKEN: ${{ secrets.XWALK_UPLOAD_TOKEN }}
+on:
+  workflow_dispatch:
+    inputs:
+      # Zip URL is only valid for 60 minutes.
+      zip_url:
+        description: 'The URL of the zip file to download.'
+        required: true
+        type: password
+      aemy_callbacks:
+        description: 'The AEMY context as a string.'
+        required: true
+        type: password
+      aemy_context:
+        description: 'The AEMY context as a string.'
+        required: true
+      root_mountpoint:
+        description: 'The target of the upload. This is the Adobe AEM Cloud URL.'
+        required: true
+      skip_assets:
+        description: 'Whether or not the upload of assets should be skipped. Defaults to false.'
+        required: false
+        default: false
+      action_url:
+        description: 'The URL that shows state of the workflow as an aid for the user.'
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  read-and-upload-xwalk-import-zip:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check inputs
+        shell: bash
+        run: |
+          echo NPM Version:
+          npm --version
+          
+          # Optional parameters
+          if [ -n "${{ github.event.inputs.action_url }}" ]; then
+            ACTION_URL="JS_LFJS_LF🕵 See the Action URL to check the progress/results of the workflow: ${{ github.event.inputs.action_url }}"
+            echo "ACTION_URL=$ACTION_URL" >> $GITHUB_ENV
+          fi
+          
+          # Required parameters
+          missing_vars=""
+      
+          if [ -z "${{ env.XWALK_UPLOAD_TOKEN }}" ]; then
+            missing_vars+="JS_LF- XWALK_UPLOAD_TOKEN (secret) "
+          fi
+
+          if [ -n "$missing_vars" ]; then
+            errorMessage="❌ The following variables are not set in your GitHub repo: $missing_vars JS_LF"
+            echo "errorMessage=$errorMessage" >> $GITHUB_ENV
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up actions
+        run: |
+          cd .github/actions/sta-status
+          npm install
+          cd ../sta-import-zip
+          npm install
+          cd ../sta-xwalk-upload
+          npm install
+
+      - name: Report if inputs are invalid
+        if: ${{ env.errorMessage != '' }}
+        uses: ./.github/actions/sta-status
+        with:
+          callbacks: ${{ github.event.inputs.aemy_callbacks }}
+          context: ${{ github.event.inputs.aemy_context }}
+          message: ${{ env.errorMessage }}
+          status_type: error
+          agent_name: upload-import-xw
+
+      - name: Progress 1 - Setup
+        uses: ./.github/actions/sta-status
+        with:
+          callbacks: ${{ github.event.inputs.aemy_callbacks }}
+          context: ${{ github.event.inputs.aemy_context }}
+          message: Inputs look good. Now setting up the upload. (Step 1 of 5).
+          status_type: progress
+          agent_name: upload-import-xw
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y jq
+
+      - name: Progress 2 - Extracting zip
+        uses: ./.github/actions/sta-status
+        with:
+          callbacks: ${{ github.event.inputs.aemy_callbacks }}
+          context: ${{ github.event.inputs.aemy_context }}
+          message: Downloading and extracting content from the Import zip... (Step 2 of 5).
+          status_type: progress
+          agent_name: upload-import-xw
+
+      - name: Download and extract import zip file
+        id: download-zip
+        uses: ./.github/actions/sta-import-zip
+        with:
+          download_url: ${{ github.event.inputs.zip_url }}
+
+      - name: Report if zip management failed
+        if: ${{ steps.download-zip.outputs.error_message != '' }}
+        uses: ./.github/actions/sta-status
+        with:
+          callbacks: ${{ github.event.inputs.aemy_callbacks }}
+          context: ${{ github.event.inputs.aemy_context }}
+          message: ${{ steps.download-zip.outputs.error_message }} ${{ env.ACTION_URL }}
+          status_type: error
+          agent_name: upload-import-xw
+
+      - name: Progress 3a - Initiating upload with default zip name
+        if: ${{ steps.download-zip.outputs.xwalk_zip == '' }}
+        uses: ./.github/actions/sta-status
+        with:
+          callbacks: ${{ github.event.inputs.aemy_callbacks }}
+          context: ${{ github.event.inputs.aemy_context }}
+          message: Zip extracted with ${{ steps.download-zip.outputs.file_count }} files but the XWalk zip was not found so will assume \"xwalk-index.zip\". Initiating upload... (Step 3 of 5).
+          status_type: progress
+          agent_name: upload-import-xw
+
+      - name: Progress 3b - Initiating upload with found zip name
+        if: ${{ steps.download-zip.outputs.xwalk_zip != '' }}
+        uses: ./.github/actions/sta-status
+        with:
+          callbacks: ${{ github.event.inputs.aemy_callbacks }}
+          context: ${{ github.event.inputs.aemy_context }}
+          message: Zip extracted with ${{ steps.download-zip.outputs.file_count }} files. Initiating upload... (Step 3 of 5).
+          status_type: progress
+          agent_name: upload-import-xw
+
+      - name: Run XWalk upload action
+        id: xwalk-upload-step
+        uses: ./.github/actions/sta-xwalk-upload
+        with:
+            upload_token: ${{ env.XWALK_UPLOAD_TOKEN }}
+            root_mountpoint: ${{ github.event.inputs.root_mountpoint }}
+            skip_assets: ${{ github.event.inputs.skip_assets }}
+            zip_path: ${{ steps.download-zip.outputs.temp_dir }}/contents
+            zip_name: ${{ steps.download-zip.outputs.xwalk_zip }}
+
+      - name: Report if upload failed
+        if: ${{ steps.xwalk-upload-step.outputs.error_message != '' }}
+        uses: ./.github/actions/sta-status
+        with:
+          callbacks: ${{ github.event.inputs.aemy_callbacks }}
+          context: ${{ github.event.inputs.aemy_context }}
+          message: ${{ steps.xwalk-upload-step.outputs.error_message }} ${{ env.ACTION_URL }}
+          status_type: error
+          agent_name: upload-import-xw
+
+      - name: Report upload success
+        uses: ./.github/actions/sta-status
+        with:
+          callbacks: ${{ github.event.inputs.aemy_callbacks }}
+          context: ${{ github.event.inputs.aemy_context }}
+          message: XWalk upload succeeded.
+          status_type: ok
+          agent_name: upload-import-xw
+
+      - name: Clean up temporary files
+        if: always()
+        run: |
+          # Delete the temp dir immediately, having system delete it eventually as a redundancy.
+          rm -rf "${{ steps.download-zip.outputs.temp_dir }}"

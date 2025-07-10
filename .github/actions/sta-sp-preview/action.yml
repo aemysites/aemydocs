@@ -1,0 +1,24 @@
+name: "Preview or Publish the SharePoint content"
+description: "Use Helix Admin apis to preview or publish the content."
+author: "Experience Catalyst"
+inputs:
+  context:
+    description: "The AEMY context"
+    required: true
+  urls:
+    description: "A comma-separated list of relative URLs to preview - relative from 'ref'"
+    required: true
+  operation:
+    description: "The operation to perform - 'preview' or 'both' (preview and publish)"
+    required: false
+    default: 'preview'
+outputs:
+  successes:
+    description: "The number of successes."
+  failures:
+    description: "The number of failures."
+  error_message:
+    description: "Error message if the operation could not be completed"
+runs:
+  using: 'node20'
+  main: 'sta-sp-preview.js'

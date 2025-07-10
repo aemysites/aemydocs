@@ -1,0 +1,22 @@
+{
+  "name": "sta-extract-mountpoint",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "sta-mountpoint.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "keywords": [
+    "STA",
+    "Experience Catalyst",
+    "Mountpoint"
+  ],
+  "author": "Experience Catalyst",
+  "license": "ISC",
+  "description": "Parse the mountpoint and type and validate it.",
+  "dependencies": {
+    "@actions/core": "^1.11.1"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "sta-sharepoint-preview",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "sta-sp-preview.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "keywords": ["STA", "Experience Catalyst", "SharePoint"],
+  "author": "Experience Catalyst",
+  "license": "ISC",
+  "description": "Get data from SharePoint",
+  "dependencies": {
+    "@actions/core": "^1.11.1"
+  }
+}

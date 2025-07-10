@@ -1,0 +1,23 @@
+{
+  "name": "sta-import-zip",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "sta-import-zip.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "keywords": [
+    "STA",
+    "Experience Catalyst",
+    "Import zip"
+  ],
+  "author": "Experience Catalyst",
+  "license": "ISC",
+  "description": "Manage the download and unzipping of the import zip file.",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "unzipper": "^0.12.3"
+  }
+}

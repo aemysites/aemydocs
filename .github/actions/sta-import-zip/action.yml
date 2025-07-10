@@ -1,0 +1,18 @@
+name: "Import zip manager"
+description: "Manage the download and unzipping of the import zip file"
+inputs:
+  download_url:
+    description: "The URL to download the zip file from"
+    required: true
+outputs:
+  temp_dir:
+    description: "The path to the temporary directory holding the zip's contents"
+  file_count:
+    description: "The count of the items successfully extracted from the zip"
+  xwalk_zip:
+    description: "The name of the xwalk (first) zip file, inside the contents folder, if any"
+  error_message:
+    description: "Error message if the operation could not be completed"
+runs:
+  using: "node20"
+  main: "sta-import-zip.js"

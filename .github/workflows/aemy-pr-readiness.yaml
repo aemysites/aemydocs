@@ -1,0 +1,70 @@
+# AEMY PR Readiness Status Check
+#
+# - If 'aemy-running' is present → PR is converted to draft, merge blocked
+# - If 'aemy-failed' is present → merge blocked
+# - If 'aemy-done' AND 'aemy-merge' are present (and 'aemy-running' and 'aemy-failed' are NOT) → PR is ready
+
+name: aemy-pr-readiness-check
+
+#on:
+#  pull_request:
+#    types: [labeled, unlabeled, opened, reopened, synchronize]
+
+concurrency:
+  group: aemy-pr-readiness-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  AEMY_RUNNING_LABEL: "aemy-running"
+  AEMY_FAILED_LABEL: "aemy-failed"
+  AEMY_DONE_LABEL: "aemy-done"
+  AEMY_MERGE_LABEL: "aemy-merge"
+
+jobs:
+  manage-pr-state:
+    name: Manage PR State
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch live PR labels
+        id: current-labels
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          LABELS=$(gh pr view ${{ github.event.pull_request.number }} --json labels --jq '.labels[].name' | paste -sd ',' -)
+          echo "labels=$LABELS" >> "$GITHUB_OUTPUT"
+          echo "Live labels: $LABELS"
+
+      - name: Convert PR to draft while AEMY is running
+        if: contains(steps.current-labels.outputs.labels, env.AEMY_RUNNING_LABEL)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr ready --undo ${{ github.event.pull_request.number }} || true
+          echo "✅ PR converted to draft (AEMY running)"
+
+      - name: Prevent merge - AEMY running or failed
+        if: |
+          contains(steps.current-labels.outputs.labels, env.AEMY_RUNNING_LABEL) ||
+          contains(steps.current-labels.outputs.labels, env.AEMY_FAILED_LABEL)
+        run: |
+          echo "❌ Cannot merge: AEMY is still running or failed"
+          exit 1
+
+      - name: Mark PR ready for review after AEMY completion
+        if: |
+          contains(steps.current-labels.outputs.labels, env.AEMY_DONE_LABEL) &&
+          contains(steps.current-labels.outputs.labels, env.AEMY_MERGE_LABEL) &&
+          !contains(steps.current-labels.outputs.labels, env.AEMY_RUNNING_LABEL) &&
+          !contains(steps.current-labels.outputs.labels, env.AEMY_FAILED_LABEL)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr ready ${{ github.event.pull_request.number }} || true
+          echo "✅ PR marked ready for review (AEMY done)"

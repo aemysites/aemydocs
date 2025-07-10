@@ -1,0 +1,18 @@
+{
+  "name": "sta-xwalk-upload-action",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "sta-xwalk-upload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "keywords": ["STA", "Experience Catalyst", "Xwalk Upload"],
+  "author": "Experience Catalyst",
+  "license": "ISC",
+  "description": "Upload the Import Zip file for XWalk",
+  "dependencies": {
+    "@actions/core": "^1.11.1"
+  }
+}

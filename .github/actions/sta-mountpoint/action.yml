@@ -1,0 +1,21 @@
+name: "Manage mountpoint and type"
+description: "Determine the mountpoint parts, its type and validate them."
+inputs:
+  mountpoint:
+    description: "The root mountpoint"
+    required: true
+  mountpoint_type:
+    description: "The required mountpoint type"
+    required: true
+outputs:
+  mountpoint:
+    description: "The value of the '/' mountpoint"
+  type:
+    description: "Determined type of the mountpoint"
+  data:
+    description: "A JSON string with the mountpoint parts, according to its type"
+  error_message:
+    description: "Error message if the operation could not be completed"
+runs:
+  using: "node20"
+  main: "sta-mountpoint.js"
