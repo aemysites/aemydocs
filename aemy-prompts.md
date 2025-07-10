@@ -23,14 +23,11 @@ AEMY prompts must be written precisely as documented. The bot uses pattern match
 | `Block inventory` | Creates inventory.json | Simplified syntax |
 | `generate inventory` | Alternative syntax | Also works |
 | `generate inventory for all site urls` | Includes all URLs | More comprehensive |
-| **Import scripts** |
-| `Import scripts` | Generates import.js and parsers | Simplified syntax |
+| **Import script** |
+| `Import script` | Generates import.js and parsers | Simplified syntax |
 | `create an import script for the site` | Alternative syntax | Also works |
 | **Import content** |
 | `Import content` | Runs import process | Simplified syntax |
-| `start importing content for the site` | Alternative syntax | Also works |
-| `start importing content for the site with javascript enabled` | Import with JS | For dynamic sites |
-| `start importing content for the site with a timeout of 3000` | Custom timeout | In milliseconds |
 | `Download the import job content for job ID <id>` | Re-download content | When link expires |
 | **Upload content** |
 | `Upload content <url>` | Upload to SharePoint | Simplified syntax |
@@ -199,15 +196,15 @@ Analyzes all pages to identify unique design patterns and components.
 
 ---
 
-## Import scripts
+## Import script
 
-### Primary syntax: Import scripts
+### Primary syntax: Import script
 
-Generates custom import scripts based on inventory.
+Generates a custom import script based on the inventory. The import script includes a parser for every block cluster found in the inventory.
 
 #### Syntax
 ```
-Import scripts
+Import script
 ```
 
 #### Alternative Syntax
@@ -216,7 +213,20 @@ create an import script for the site
 ```
 
 #### Description
-Creates parsers and transformation rules for each component type.
+Creates parsers and transformation rules for each block type.
+
+#### Advanced Syntax
+```
+create an import script for the blocks columns1, cards2, accordion3
+```
+Re-generate specific parsers again. Requires an existing import script to have already been generated. This prompt can be added to an existing pull request or as a new issue.
+
+```
+create an import script for the block columns1 with the following feedback
+
+only include h3 and h4 headings
+```
+Re-generate a single specific parser with additional feedback.
 
 #### Labels Required
 - `aemy-help`
@@ -229,9 +239,9 @@ Creates parsers and transformation rules for each component type.
 
 ### Primary syntax: Import content
 
-Executes import process to convert content.
+Starts a job to begin importing the content from all the site URLs.
 
-#### Syntax
+#### Basic Syntax
 ```
 Import content
 ```
@@ -250,16 +260,32 @@ start importing content for the site with javascript enabled
 start importing content for the site with javascript enabled and with a timeout of 3000
 ```
 
-#### Parameters
-- **javascript enabled** (optional) - Enable JavaScript during import
-- **timeout** (optional) - Page load timeout in milliseconds
+#### Browser Options
+Options can be used to control how the browser behaves during import. 
+Browser options must be added to `/tools/importer/aemy.json`.
+
+- enableJavascript (boolean): Enable JavaScript during import
+- pageLoadTimeout (number): The delay in milliseconds to wait after a page loads before starting transformation
+- scrollToBottom (boolean): Scroll to the bottom of the page to render lazy loaded elements
+
+```json
+{
+  "browserOptions": {
+    "pageLoadTimeout": 30000,
+    "enableJavascript": true,
+    "scrollToBottom": true
+  }
+}
+```
 
 #### Labels Required
 - `aemy-help`
 - `aemy-go`
 
 #### Prerequisites
-- Completed import script generation
+- Completed site urls
+- Compelted inventory
+- Completed import script
 - No Content Security Policy (CSP) blocking
 
 #### CSP Check
@@ -268,28 +294,28 @@ Some websites block imports due to Content Security Policy. Check before importi
 curl -s -I "https://example.com" | grep -i "Content-Security-Policy:" | grep -E "(default-src|script-src|connect-src).*'none'|'self'|frame-ancestors.*'none'|'self'|sandbox" > /dev/null && echo "Import is blocked due to CSP" || echo "Import is allowed"
 ```
 
-If blocked by CSP, use local AEM import tools instead.
+If blocked by CSP, use the local AEM Importer tool instead (`aem import`).
 
 ### Download the import job content
 
-Re-downloads previously imported content.
+Requests a new download link to obtain the imported content. Download links typically expire after one hour.
 
-#### Syntax
+#### Basic Syntax
 ```
-Download the import job content for job ID [JOB-ID]
+download the import job content
 ```
+Finds the job id from the issue comment history and requests a new download link for that job.
 
-#### Description
-Retrieves content from a completed import job when the download link expires (typically after ~1 hour).
+#### Advanced Syntax
+```
+download the import job content for job id [jobId]
+```
+Requests a new download link for a sepcific job.
 
-#### Parameters
-- **JOB-ID** (required) - The import job ID from the original import completion message (e.g., `11db83a3-08de-4627-9e54-a3efb32ae0b1`)
+- **jobId** (required) - The import job ID from the original import completion message (e.g., `11db83a3-08de-4627-9e54-a3efb32ae0b1`)
 
-#### Labels Required
-- `aemy-help`
-
-#### Finding the Job ID
 Look for the job ID in the import completion message:
+
 ```json
 {
   "id": "11db83a3-08de-4627-9e54-a3efb32ae0b1",
@@ -297,6 +323,9 @@ Look for the job ID in the import completion message:
   ...
 }
 ```
+
+#### Labels Required
+- `aemy-help`
 
 ---
 
@@ -333,9 +362,9 @@ Upload the content using this download url [download-url] and preview it
 
 ---
 
-## Brand fonts
+## Branding
 
-### Primary syntax: Brand fonts
+### Primary syntax: Branding
 
 Configures typography and global styles.
 
@@ -346,7 +375,7 @@ Brand fonts
 
 #### Alternative Syntax
 ```
-setup the brand fonts
+Please setup the brand (eg. fonts)
 ```
 
 #### Description
@@ -357,7 +386,6 @@ Analyzes original site typography and creates font configurations.
 - `aemy-go` (recommended)
 
 #### Notes
-- The simplified "Brand fonts" syntax works without needing "setup" or "the"
 - Does not currently extract colors
 
 ## Style block
@@ -368,12 +396,12 @@ Styles a specific component type.
 
 #### Syntax
 ```
-Style [block and variant name]
+Style block [block name (variant name)]
 ```
 
 #### Alternative Syntax
 ```
-style the [block and variant name] block
+style the [block name (variant name)] block
 ```
 
 #### Parameters
@@ -397,7 +425,7 @@ style the [block and variant name] block
 }
 ```
 - ❌ `style the Search block` - Won't work with variants
-- ✅ `style the Search (minimal, search4) block` - Correct full reference
+- ✅ `style the block Search (minimal, search4)` - Correct full reference
 - ⚠️ `style the Search (minimal) block` - May work but less precise
 
 **Finding Block Names**
@@ -547,7 +575,7 @@ AEMY accepts both simplified and traditional command syntax:
 **Simplified Syntax** (as shown in tutorial):
 - `Analyze https://example.com`
 - `Block inventory`
-- `Import scripts`
+- `Import script`
 - `Import content`
 - `Upload content [URL]`
 - `Branding`
