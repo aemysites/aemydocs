@@ -17,8 +17,9 @@ Experience Catalyst is Adobe's AI-powered migration tool that transforms existin
 - **Expand and refine**: Aemy handles the heavy lifting, and developers can extend or enhance the results at all time.
 
 ## Get Started
-- [Step-by-Step Tutorial](tutorial.md) - Import your first site using Experience Catalyst
-- Alternatively, watch the [Experience Catalyst demo video](https://adobe.sharepoint.com/:v:/s/AEMDemos/EcBetvTtRG9OuISZgF8czQkBheNgsTf28DhEg9LN-VDVEw)
+- **[Get provisionned](support.md)**: Currently limited to Adobe internal users.
+- **[Take the tutorial](tutorial.md)**: Import your first site using Experience Catalyst.
+- **[Watch the demo video](https://adobe.sharepoint.com/:v:/s/AEMDemos/EcBetvTtRG9OuISZgF8czQkBheNgsTf28DhEg9LN-VDVEw)**: Quick 3 min video to get an overview.
 
 ### Key Resources
 - [What is Edge Delivery Services?](https://www.aem.live/) - Adobe's modern web delivery platform
