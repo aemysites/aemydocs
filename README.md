@@ -18,7 +18,7 @@ Collaborate with Aemy, our GitHub integrated AI Agent.
 - **Full control**: Aemy creates pull requests for all code changes, so you can review, approve, or modify everything before it lands.
 - **Expand and enhance**: Because Aemy generates clean, maintainable code, you can easily extend or refine the results to fit your needs.
 
-## Get started
+### Get started
 
 - **[Get provisionned](support.md)**: Currently limited to Adobe internal users.
 - **[Take the tutorial](tutorial.md)**: Import your first site using Experience Catalyst.
