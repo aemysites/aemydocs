@@ -10,4 +10,5 @@
 
 ## Slack Channels
 
-- **Technical Support**: If you need assistance or have feedback about Experience Catalyst, feel free to post in the [#experience-catalyst-users](https://adobe.enterprise.slack.com/archives/experience-catalyst-users) Slack channel. We're here to help!
+**Technical Support**: If you need assistance or have feedback about Experience Catalyst, feel free to post in the [#experience-catalyst-users](https://adobe.enterprise.slack.com/archives/experience-catalyst-users) Slack channel. We're here to help!
+
