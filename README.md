@@ -22,7 +22,7 @@ Experience Catalyst fundamentally changes how developers approach website migrat
 - **Modern Stack**: Edge Delivery Services, Git-based content, component architecture
   
 ## Getting Started
-- Have a look at the [demo](https://adobe.sharepoint.com/sites/AEMDemos/_layouts/15/stream.aspx?id=%2Fsites%2FAEMDemos%2FShared%20Documents%2Fsites%2Faemy%2Dsites%2Fwknd%2Dts%2Ddemo%2Dv2%2Emov&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E4f188d42%2Dc239%2D4b8b%2Da3d6%2D49888954b43e) for how Experience Catalyst works
+- Have a look at the [demo](https://adobe.sharepoint.com/:v:/s/AEMDemos/ERfFYOvrY3NAjHQCujSzWVkB1bemThdJfeq3SmM5tEA2fA) for how Experience Catalyst works
 - [Step-by-Step Tutorial](tutorial.md) - Import your first site using Experience Catalyst
 
 ### Key Resources
