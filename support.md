@@ -16,3 +16,6 @@ It's time now for you to try out the [Experience Catalyst tutorial](tutorial.md)
 
 **Slack Channel**: If you need assistance or have feedback about Experience Catalyst, feel free to post in the [#experience-catalyst-users](https://adobe.enterprise.slack.com/archives/experience-catalyst-users) Slack channel. We're here to help!
 
+---
+
+*Experience Catalyst is available as Early Access Technology. Contact your Adobe representative for access.*
