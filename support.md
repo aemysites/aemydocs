@@ -1,5 +1,7 @@
 # Internal Resources
 
+Access to Experience Catalyst is currently limited to Adobe internal users.
+
 ## Access Request Process
 
 1. New users, join the [#experience-catalyst-users](https://adobe.enterprise.slack.com/archives/experience-catalyst-users) Slack channel.
