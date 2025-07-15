@@ -14,31 +14,31 @@ AEMY prompts must be written precisely as documented. The bot uses pattern match
 |---------|--------|-------|
 | **Setup** |
 | `setup the repository` | Creates PR with workflows and templates | Usually automatic when AEMY is installed |
-| **Analyze website** |
+| [**Analyze website**](#analyze-website) |
 | `Analyze <url>` | Generates site-urls.json | Default strategy |
 | `analyze the website <url>` | Alternative syntax | Also works |
 | `analyze the website <url> by crawling` | Generates site-urls.json by crawling | Can take longer |
 | `validate the site urls` | Validates manually edited URLs | Use after manual edits |
-| **Block inventory** |
+| [**Block inventory**](#block-inventory) |
 | `Block inventory` | Creates inventory.json | Simplified syntax |
 | `generate inventory` | Alternative syntax | Also works |
 | `generate inventory for all site urls` | Includes all URLs | More comprehensive |
-| **Import script** |
+| [**Import script**](#import-script) |
 | `Import script` | Generates import.js and parsers | Simplified syntax |
-| `create an import script for the site` | Alternative syntax | Also works |
-| **Import content** |
+| `create an import script for the site` | Alternative syntax | More comprehensive |
+| [**Import content**](#import-content) |
 | `Import content` | Runs import process | Simplified syntax |
-| `Download the import job content for job ID <id>` | Re-download content | When link expires |
-| **Upload content** |
+| `Download imported content` | Request new download link for content | When link expires |
+| [**Upload content**](#upload-content) |
 | `Upload content <url>` | Upload to SharePoint | Simplified syntax |
 | `<url> Upload and preview` | Alternative syntax | Also works |
-| **Branding** |
+| [**Branding**](#branding) |
 | `Branding` | Global typography | Simplified syntax |
 | `setup the brand (eg. fonts)` | Alternative syntax | Also works |
-| **Style block** |
+| [**Style block**](#style-block) |
 | `Style <block and variant name>` | Style specific block | Use exact inventory name |
 | `style the <block> block` | Alternative syntax | Also works |
-| **Utility** |
+| [**Utility**](#utility-prompts) |
 | `Create styling issues for all blocks` | Batch issue creation | For manual work |
 | `catalyze the website <url>` | Full automation | Complete workflow |
 
@@ -219,6 +219,7 @@ Creates parsers and transformation rules for each block type.
 ```
 create an import script for the blocks columns1, cards2, accordion3
 ```
+
 Re-generate specific parsers again. Requires an existing import script to have already been generated. This prompt can be added to an existing pull request or as a new issue.
 
 ```
@@ -226,6 +227,7 @@ create an import script for the block columns1 with the following feedback
 
 only include h3 and h4 headings
 ```
+
 Re-generate a single specific parser with additional feedback.
 
 #### Labels Required
@@ -251,15 +253,6 @@ Import content
 start importing content for the site
 ```
 
-#### With Options
-```
-start importing content for the site with javascript enabled
-```
-
-```
-start importing content for the site with javascript enabled and with a timeout of 3000
-```
-
 #### Browser Options
 Options can be used to control how the browser behaves during import. 
 Browser options must be added to `/tools/importer/aemy.json`.
@@ -268,6 +261,7 @@ Browser options must be added to `/tools/importer/aemy.json`.
 - pageLoadTimeout (number): The delay in milliseconds to wait after a page loads before starting transformation
 - scrollToBottom (boolean): Scroll to the bottom of the page to render lazy loaded elements
 
+These are the default browser options that are used when no `aemy.json` is present.
 ```json
 {
   "browserOptions": {
@@ -284,7 +278,7 @@ Browser options must be added to `/tools/importer/aemy.json`.
 
 #### Prerequisites
 - Completed site urls
-- Compelted inventory
+- Completed inventory
 - Completed import script
 - No Content Security Policy (CSP) blocking
 
@@ -304,12 +298,14 @@ Requests a new download link to obtain the imported content. Download links typi
 ```
 download the import job content
 ```
+
 Finds the job id from the issue comment history and requests a new download link for that job.
 
 #### Advanced Syntax
 ```
 download the import job content for job id [jobId]
 ```
+
 Requests a new download link for a sepcific job.
 
 - **jobId** (required) - The import job ID from the original import completion message (e.g., `11db83a3-08de-4627-9e54-a3efb32ae0b1`)
