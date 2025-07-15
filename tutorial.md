@@ -108,13 +108,13 @@ Making sure that the pull request has the `aemy-done` label, you can now merge a
 
 <img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 45 32" src="https://github.com/user-attachments/assets/686489ac-7707-4984-9d3f-2af737139359" />
 
-**Summary**: With the `Import script` prompt, AEMY created parser and transformer scripts for each block type identified in the `tools/importer/inventory.json`, which will allow in the next step to reliably convert the content from your site to Edge Delivery blocks.
+**Summary**: With the `Import script` prompt, AEMY created parser and transformer scripts for each block type identified in the `tools/importer/inventory.json`, which will allow the next step to reliably convert the content from your site to Edge Delivery blocks.
 
 **Reference**: [Import script command details](aemy-prompts.md#import-script)
 
 ## Step 4: Import and upload content
 
-Now comes the key part; effectively migrating the content from your website into clean, semantic documents that Edge Delivery can use. Let's dive in and watch your site come to life.
+Now comes the key part; effectively migrating the content from your website into clean, semantic documents that can be used with Edge Delivery. Let's dive in and watch your site come to life.
 
 ### Import content
 
@@ -122,19 +122,19 @@ In this step, AEMY will convert all pages to documents using your import script:
 
 1. Create a new issue
 2. **Title**: `Import content`
-3. **Description**: `Please import the content with javascript enabled and a timeout of 3000 ms`
+3. **Description**: `Import content from the site`
 4. **Labels**: `aemy-help`, `aemy-go`
 5. Click **Create**
 
 <img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 49 30" src="https://github.com/user-attachments/assets/04f8254b-21c1-439e-963f-8b8d46b3d2ba" />
 
-After this task is finished, you won't get a pull request as for the previous steps. Instead, you'll receive a download link for a Zip file containing the imported content. Copy the link by right-clicking on it and select **Copy link address**. You can now close this issue.
+After this task is finished, you won't get a pull request as in the previous steps. Instead, you'll receive a download link to a Zip file containing the imported content. Copy the link by right-clicking on it and select **Copy link address**. You can now close this issue.
 
-**Important**: Mind that this URL expires after ~1 hour. If it expired, follow-up in the same GitHub issue asking AEMY to download content by adding: `Download imported content` to the issue body and apply the `aemy-help` label. 
+**Important**: This URL expires after ~1 hour. If it has expired, follow-up in the same GitHub issue asking AEMY to download content by adding: `Download imported content` to the issue body and apply the `aemy-help` label. 
 
 <img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 49 48" src="https://github.com/user-attachments/assets/81d6ec2f-92b8-4fa0-944e-7dc0a9e1cd7d" />
 
-**Summary**: With the `Import content` prompt, AEMY used `tools/importer/inventory.json` to go through all the blocks on your site and applying the corresponding import scripts. It generated a Zip file containing all the content converted into Edge Delivery documents.
+**Summary**: With the `Import content` prompt, AEMY used `tools/importer/site-urls.json` and `tools/importer/inventory.json` to go through all the pages on your site and used the import script to parse the block content found on each page. It generated a Zip file containing all the content converted into Edge Delivery documents.
 
 **Reference**: [Import content command details](aemy-prompts.md#import-content)
 
