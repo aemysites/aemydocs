@@ -130,7 +130,7 @@ In this step, AEMY will convert all pages to documents using your import script:
 
 After this task is finished, you won't get a pull request as in the previous steps. Instead, you'll receive a download link to a Zip file containing the imported content. Copy the link by right-clicking on it and select **Copy link address**. You can now close this issue.
 
-**Important**: This URL expires after ~1 hour. If it has expired, follow-up in the same GitHub issue asking AEMY to download content by adding: `Download imported content` to the issue body and apply the `aemy-help` label. 
+**Important**: This URL expires after 24 hours. If it has expired, follow-up in the same GitHub issue asking AEMY to download content by adding: `Download imported content` to the issue body and apply the `aemy-help` label. 
 
 <img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 49 48" src="https://github.com/user-attachments/assets/81d6ec2f-92b8-4fa0-944e-7dc0a9e1cd7d" />
 
