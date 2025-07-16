@@ -232,7 +232,7 @@ Now that you've completed your first migration:
 1. **Optimize**: Proceed with fine-tuning the styles of individual blocks.
 1. **Customize**: Modify the import scripts for specific needs.
 1. **Expand**: Try migrating different types of sites.
-  - If you are preparing a demo for a large site but wish to speed up the Catalyze process, you can provide a fixed set of URLs to AEMY. Example prompt:
+  - If you are preparing a demo of a large site and only need a small subset of pages, you can provide a fixed set of URLs to AEMY. Example prompt:
 ```
 catalyze the website https://example.com and use this list of URLs:
 
