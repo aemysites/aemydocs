@@ -229,9 +229,17 @@ To understand what happened, explore these key files:
 
 Now that you've completed your first migration:
 1. **Learn More**: Keep the [AEMY Prompt Reference](aemy-prompts.md) under your pillow.
-2. **Optimize**: Proceed with fine-tuning the styles of individual blocks.
-3. **Expand**: Try migrating different types of sites.
-4. **Customize**: Modify the import scripts for specific needs.
+1. **Optimize**: Proceed with fine-tuning the styles of individual blocks.
+1. **Customize**: Modify the import scripts for specific needs.
+1. **Expand**: Try migrating different types of sites.
+  - If you are preparing a demo of a large site and only need a small subset of pages, you can provide a fixed set of URLs to AEMY. Example analyze prompt:
+```
+Analyze the website https://example.com and use this list of URLs:
 
+https://example.com/page1
+https://example.com/page2
+https://example.com/page3
+```
+  - Note: Only the URLs you provide will be included. As a result, linking to other pages that were not included will result in a 404 on your Edge Delivery Services site
 
 IMPORTANT: The above process broke down the process in distinct steps. To have AEMY run all steps in sequence, you can use `Catalyse` flow. See this [video](https://adobe.sharepoint.com/:v:/s/AEMDemos/EcBetvTtRG9OuISZgF8czQkBheNgsTf28DhEg9LN-VDVEw?e=58XxCm) to understand how it works. Happy Catalyzing! 
