@@ -4,13 +4,13 @@
 
 Experience Catalyst is Adobe's AI-powered migration tool that transforms existing websites into high-performance Edge Delivery Services sites. Instead of months of manual migration work, Experience Catalyst uses intelligent automation to complete the process in hours or days while maintaining your site's design and functionality.
 
-### Why it matters
+## Why it matters
 
 - **Faster time to market**: Launch your modernized site in days, not months.
 - **Reduced migration costs**: Automated conversion eliminates 80% of manual effort.
 - **Future-ready architecture**: Built for the AI era with Edge Delivery Services.
 
-### Accelerate development
+## Accelerate development
 
 Collaborate with Aemy, our GitHub integrated AI Agent.
 
@@ -18,7 +18,7 @@ Collaborate with Aemy, our GitHub integrated AI Agent.
 - **Full control**: Aemy creates pull requests for all code changes, so you can review, approve, or modify everything before it lands.
 - **Expand and enhance**: Because Aemy generates clean, maintainable code, you can easily extend or refine the results to fit your needs.
 
-### Get started
+## Get started
 
 - **[Get provisionned](support.md)**: Currently limited to Adobe internal users.
 - **[Take the tutorial](tutorial.md)**: Import your first site using Experience Catalyst.
