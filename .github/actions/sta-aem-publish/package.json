@@ -1,0 +1,19 @@
+{
+  "name": "sta-aem-publish",
+  "version": "1.0.0",
+  "description": "GitHub Action for replicating content using AEM /bin/replicate endpoint",
+  "main": "sta-aem-publish.js",
+  "type": "module",
+  "dependencies": {
+    "@actions/core": "^1.10.0"
+  },
+  "keywords": [
+    "aem",
+    "replicate",
+    "preview",
+    "publish",
+    "github-actions"
+  ],
+  "author": "Adobe",
+  "license": "Apache-2.0"
+} 

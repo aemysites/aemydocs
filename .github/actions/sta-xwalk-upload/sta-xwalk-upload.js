@@ -18,7 +18,7 @@ async function runUpload(
   xwalkZipPath,
   assetMappingPath,
   target,
-  token,
+  accessToken,
   skipAssets = false,
 ) {
   return new Promise((resolve, reject) => {
@@ -29,7 +29,7 @@ async function runUpload(
       '--zip', xwalkZipPath,
       '--asset-mapping', assetMappingPath,
       '--target', target,
-      '--token', token,
+      '--token', accessToken,
     ];
     if (skipAssets) {
       args.push('--skip-assets');
@@ -37,7 +37,7 @@ async function runUpload(
 
     // Try to make it easy to read in the logs.
     const suffixArray = ['', '', '\n>  ', '', '\n>  ', '', '\n>  ', '', '\n>  '];
-    const maskedArgs = args.map((arg, index) => (arg === token ? '***\n>  ' : `${arg}${suffixArray[index % suffixArray.length]}`));
+    const maskedArgs = args.map((arg, index) => (arg === accessToken ? '***\n>  ' : `${arg}${suffixArray[index % suffixArray.length]}`));
     core.info('Running command:');
     core.info(`> npx ${maskedArgs.join(' ')}`);
 
@@ -67,8 +67,8 @@ async function runUpload(
  * @returns {Promise<void>}
  */
 export async function run() {
-  const token = core.getInput('upload_token');
-  const target = core.getInput('root_mountpoint');
+  const accessToken = core.getInput('access_token');
+  const target = core.getInput('aem_author_url');
   const zipPath = core.getInput('zip_path');
   const zipName = core.getInput('zip_name');
   const skipAssets = core.getInput('skip_assets') === 'true';
@@ -85,7 +85,7 @@ export async function run() {
       fullZipPath,
       assetMappingPath,
       hostTarget,
-      token,
+      accessToken,
       skipAssets,
     );
     core.info('✅ Upload completed successfully.');

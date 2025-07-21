@@ -26,12 +26,28 @@ function getMountpointData(rootMountpoint, type) {
 
   if (type === 'sharepoint') {
     let pathParts;
+    // the format looks something like
+    // "https://adobe.sharepoint.com/:f:/r/sites/AEMDemos/Shared%20Documents/sites/esaas-demos/repo_name"
+    // we want to get the site name and the rest of the path
     const sitesParts = url.pathname.split('/sites/');
+
+    // [0] :fr:/r
+    // [1] AEMDemos
+    // [2...] Shared%20Documents/sites/esaas-demos/repo_name
+
+    // this gets us the site name (AEMDemos) and the rest of the path
     [mountpointData.site, ...pathParts] = sitesParts[1].split('/');
+
+    // take all the paths and join them into a single path string
     mountpointData.path = pathParts.join('/');
+
+    // if we have a properly constucted mountpoint, we should have 3 parts in the path
     if (sitesParts.length === 3) {
+      // the path then becomes /AEMDemos/Shared Documents/sites/esaas-demos/repo_name
       mountpointData.path = `${mountpointData.path}/sites/${sitesParts[2]}`;
     }
+
+    //  if we don't have all the parts, throw an error
     if (!mountpointData.host || !mountpointData.site || !mountpointData.path) {
       throw new Error('Mountpoint is not in the expected format.');
     }

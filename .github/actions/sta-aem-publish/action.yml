@@ -1,0 +1,26 @@
+name: 'STA AEM Replicate'
+description: 'Replicates content using AEM /bin/replicate endpoint for preview and publish'
+
+inputs:
+  access_token:
+    description: 'JWT access token for AEM authentication'
+    required: true
+  aem_url:
+    description: 'The AEM instance URL (e.g., https://author-p12345-e67890.adobeaemcloud.com)'
+    required: true
+  content_paths:
+    description: 'Comma-separated list of content paths to replicate (e.g., /content/dam/my-assets,/content/my-page)'
+    required: true
+  is_preview:
+    description: 'Whether to replicate to preview (true) or publish (false)'
+    required: false
+    default: 'false'
+
+outputs:
+  error_message:
+    description: 'Error message if replication failed'
+    value: ${{ steps.replicate.outputs.error_message }}
+
+runs:
+  using: 'node20'
+  main: 'sta-aem-publish.js' 
