@@ -57,7 +57,7 @@ function getStatusCallParameters(
  */
 export async function run() {
   const context = core.getInput('context');
-  const callbackUrls = core.getInput('callback_urls');
+  const callbacks = core.getInput('callbacks');
   const message = core.getInput('message');
   const statusType = core.getInput('status_type');
   const agentName = core.getInput('agent_name');
@@ -71,11 +71,9 @@ export async function run() {
     return;
   }
 
-  const apiKey = process.env.AEMY_API_KEY;
-
   try {
-    const coordinatorCallbacks = JSON.parse(callbackUrls);
-    if (!context || !coordinatorCallbacks[statusType] || !message || !apiKey) {
+    const coordinatorCallbacks = JSON.parse(callbacks);
+    if (!context || !callbacks || !message || !statusType || !coordinatorCallbacks?.apiKey) {
       core.info(`Missing or misconfigured parameters in ${name} call. Skipping status call: "${message}".`);
       return;
     }
@@ -83,7 +81,7 @@ export async function run() {
     const url = coordinatorCallbacks[statusType];
     const { body, headers } = getStatusCallParameters(
       JSON.parse(context),
-      apiKey,
+      coordinatorCallbacks.apiKey,
       statusType,
       message,
     );
