@@ -1,0 +1,16 @@
+name: "Get access token for AEM"
+description: "Get access token for AEM"
+author: "Experience Catalyst"
+inputs:
+  credentials_path:
+    description: "The decoded credentials in a JSON string."
+    required: true
+  operation:
+    description: "The operation to perform"
+    required: true
+outputs:
+  access_token:
+    description: "The access token for AEM"
+runs:
+  using: 'node20'
+  main: 'sta-aem-helper.js'

@@ -2,7 +2,7 @@ name: "Upload XWalk"
 description: "Upload the Import Zip for XWalk"
 author: "Experience Catalyst"
 inputs:
-  upload_token:
+  access_token:
     description: "The base64-encoded token to use for the upload."
     required: true
   root_mountpoint:

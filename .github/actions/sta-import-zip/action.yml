@@ -13,6 +13,8 @@ outputs:
     description: "The name of the xwalk (first) zip file, inside the contents folder, if any"
   error_message:
     description: "Error message if the operation could not be completed"
+  content_paths:
+    description: "The list of content paths to replicate as a string separated by a comma"
 runs:
   using: "node20"
   main: "sta-import-zip.js"
