@@ -20,7 +20,7 @@ Collaborate with Aemy, our GitHub integrated AI Agent.
 
 ## Get started
 
-- **[Get provisionned](support.md)**: Currently limited to Adobe internal users.
+- **[Get provisioned](support.md)**: Currently limited to Adobe internal users.
 - **[Take the tutorial](tutorial.md)**: Import your first site using Experience Catalyst.
 - **[Watch the demo video](https://adobe.sharepoint.com/:v:/s/AEMDemos/EcBetvTtRG9OuISZgF8czQkBheNgsTf28DhEg9LN-VDVEw)**: Quick 3 min video to get an overview.
 
