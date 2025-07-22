@@ -126,7 +126,7 @@ In this step, AEMY will convert all pages to documents using your import script:
 4. **Labels**: `aemy-help`, `aemy-go`
 5. Click **Create**
 
-<img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 49 30" src="https://github.com/user-attachments/assets/04f8254b-21c1-439e-963f-8b8d46b3d2ba" />
+<img width="1838" height="1383" alt="Screenshot 2025-07-22 at 08 46 30" src="https://github.com/user-attachments/assets/bf9a4c95-452c-4e24-b083-c3adb2f85c82" />
 
 After this task is finished, you won't get a pull request as in the previous steps. Instead, you'll receive a download link to a Zip file containing the imported content. Copy the link by right-clicking on it and select **Copy link address**. You can now close this issue.
 
