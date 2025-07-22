@@ -122,7 +122,7 @@ In this step, AEMY will convert all pages to documents using your import script:
 
 1. Create a new issue
 2. **Title**: `Import content`
-3. **Description**: `Import content from the site`
+3. **Description**: `Import the content`
 4. **Labels**: `aemy-help`, `aemy-go`
 5. Click **Create**
 

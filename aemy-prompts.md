@@ -38,6 +38,7 @@ AEMY prompts must be written precisely as documented. The bot uses pattern match
 | [**Style block**](#style-block) |
 | `Style <block and variant name>` | Style specific block | Use exact inventory name |
 | `style the <block> block` | Alternative syntax | Also works |
+| `style all the blocks on <origin_page_url>` | This will create issues to style all the blocks on a page | Use the source URL, not <site>.aem.page |
 | [**Utility**](#utility-prompts) |
 | `Create styling issues for all blocks` | Batch issue creation | For manual work |
 | `catalyze the website <url>` | Full automation | Complete workflow |
@@ -461,6 +462,13 @@ style the Hero (hero42) block with this feedback:
 - Ensure mobile responsiveness
 - Match the original button style
 ```
+
+#### Style all the blocks on a page
+```
+style all the blocks on https://www.wknd-trendsetters.site/fashion-insights
+```
+
+This will create Github issues to style each block on the page. Note that you must use the source URL, as opposed to the Edge Delivery Services preview (or live) URL. 
 
 #### Troubleshooting
 
