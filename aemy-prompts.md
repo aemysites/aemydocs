@@ -12,8 +12,6 @@ AEMY prompts must be written precisely as documented. The bot uses pattern match
 
 | Command | Action | Notes |
 |---------|--------|-------|
-| **Setup** |
-| `setup the repository` | Creates PR with workflows and templates | Usually automatic when AEMY is installed |
 | [**Analyze website**](#analyze-website) |
 | `Analyze <url>` | Generates site-urls.json | Default strategy |
 | `analyze the website <url>` | Alternative syntax | Also works |
