@@ -462,6 +462,8 @@ style the Hero (hero42) block with this feedback:
 ```
 
 #### Style all the blocks on a page
+> **_NOTE:_** It's recommended to use the `aemy-merge` label when running this aemy command.
+
 ```
 style all the blocks on https://www.wknd-trendsetters.site/fashion-insights
 ```
@@ -505,6 +507,8 @@ Create styling issues for the page https://example.com/about
 Creates individual issues for manual or automated styling of each component.
 
 #### Advanced Mode
+> **_NOTE:_** It's recommended to use the `aemy-merge` label when running this aemy command.
+
 ```
 Create styling issues for all blocks in advanced mode
 ```
