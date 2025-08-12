@@ -1,0 +1,132 @@
+# Crosswalk Tutorial: Bring Your Own AEM
+
+This tutorial will guide you through the process of setting up a crosswalk integration between your existing AEM instance and a new GitHub repository for AEM Edge Delivery Services.
+
+## Prerequisites
+
+- Access to an AEM Cloud Service instance
+- GitHub account
+- AEM Developer Console access for your organization
+
+## GitHub Setup
+
+### 1. Create a Repository Request
+
+First, you'll need to create a request for a new repository that will be connected to your AEM instance.
+
+**Required Information:**
+- Provide your AEM URL (e.g., `https://author-p141866-e1455422.adobeaemcloud.com`)
+
+### 2. Repository Creation
+
+Once approved, a new GitHub repository will be created automatically for your project based on your username and the current date. This repository will contain:
+- AEM Edge Delivery Services boilerplate code
+- Updated fstab and paths.json files
+- Automated workflows for deployment
+
+### 3. Initial AEM Content
+
+Before proceeding with authentication setup, you need to create your AEM site using the crosswalk template. This will establish the initial content structure that will be synchronized with your GitHub repository.
+
+#### Creating Your AEM Site:
+
+1. **Navigate to AEM Sites Console:**
+   - Log into your AEM author instance
+   - Go to **Sites** from the main navigation
+
+2. **Start Site Creation:**
+   - Click **Create** button
+   - Select **Site from template**
+   - Choose the **latest crosswalk site template**
+   - If you don't see the template, download the latest version from the [AEM Boilerplate Crosswalk Releases](https://github.com/adobe-rnd/aem-boilerplate-xwalk/releases) and import it first
+   - Click **Next**
+
+3. **Configure Site Details:**
+   - **Site Title:** Enter your GitHub repository name (e.g., `sta-xwalk-e2e`)
+   - **Site Name:** Enter the same repository name (e.g., `sta-xwalk-e2e`)
+   - **GitHub Repository URL:** Provide the full URL of your GitHub repository (e.g., `https://github.com/aemdemos/sta-xwalk-e2e`)
+   
+   > **Important:** The Site Title and Site Name must exactly match your GitHub repository name for proper synchronization.
+
+4. **Complete Site Creation:**
+   - Click **Create**
+   - Wait for the site creation process to complete
+   - This will automatically generate your initial content structure with the necessary configuration for crosswalk integration
+
+5. **Clean Up Sample Content:**
+   - Navigate to your new site in the AEM Sites console
+   - Delete any sample or placeholder pages that came with the template
+   - Keep only the essential structure (home page, etc.)
+   - Go to the Assets console and navigate to the folder corresponding to your site
+   - Delete sample images, documents, and other assets
+   - Maintain the folder structure for future content organization
+   - Ensure your site has a clean starting point ready for your actual content
+
+### 4. AEM User Credentials and GitHub Secrets
+
+To enable automated content synchronization, you need to set up authentication between GitHub and your AEM instance.
+
+#### Steps:
+
+1. **Access AEM Developer Console:**
+   - Navigate to your AEM Developer Console
+   - Go to the Integrations section
+   - Create or access your technical account details
+
+2. **Obtain Technical Account Details:**
+   - Download the service account JSON credentials
+   - This file contains the private key and certificate information needed for authentication
+
+3. **Create GitHub Secret:**
+   - Base64 encode your credentials:
+     ```bash
+     echo -n "your-json-credentials" | base64
+     ```
+   - In your GitHub repository, go to Settings > Secrets and variables > Actions
+   - Create a new repository secret with the encoded credentials
+   - Name it appropriately (i.e., `AEM_SERVICE_CREDENTIALS`)
+
+### 5. Configure Technical Account Permissions in AEM
+
+After setting up the service credentials, you need to grant the technical account proper permissions in AEM to enable content synchronization.
+
+#### Steps:
+
+1. **Locate the Technical Account Email:**
+   - Open the Service Credentials JSON file you downloaded from the AEM Developer Console
+   - Find the `integration.email` value (e.g., `12345678-abcd-9000-efgh-0987654321c@techacct.adobe.com`)
+   - This is the login name for the technical account AEM user
+
+2. **Configure User Permissions in AEM:**
+   - Log into your AEM author instance as an AEM Administrator
+   - Navigate to **Tools** > **Security** > **Users**
+   - Search for and locate the AEM user with the **Login Name** from step 1
+   - Open the user's **Properties**
+
+3. **Add to DAM Users Group:**
+   - Navigate to the **Groups** tab
+   - Add the user to the **DAM Users** group (this provides write access to assets)
+   - You may also need to add other appropriate groups depending on your content structure and permissions requirements
+   - Click **Save and Close**
+
+4. **Next Steps - Content Analysis:**
+   - Once permissions are configured, follow the [main tutorial](tutorial.md) to begin analyzing your content, generating inventory, and starting the migration process
+   - The tutorial will guide you through the content analysis workflow and help you understand your existing AEM content structure
+
+## Troubleshooting
+
+### Common Issues:
+
+- **Authentication Problems:** Verify that your GitHub secrets are correctly configured and that the technical account has appropriate permissions
+- **Content Sync Issues:** Check the fstab configuration and ensure the content paths are correctly mapped
+- **Site Template Problems:** Ensure you're using the latest version of the crosswalk template
+
+### Support Resources:
+
+- [AEM Live Documentation](https://www.aem.live/)
+- [Edge Delivery Services Documentation](https://www.aem.live/developer/)
+- [GitHub Repository Issues](https://github.com/adobe-rnd/aem-boilerplate-xwalk/issues)
+
+---
+
+*This tutorial provides the foundational steps for setting up a crosswalk integration. For more detailed technical information, refer to the official AEM Live documentation.*
