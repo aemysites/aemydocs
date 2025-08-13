@@ -73,6 +73,10 @@ To enable automated content synchronization, you need to set up authentication b
    - Go to the Integrations section
    - Create or access your technical account details
 
+
+     <img width="895" height="643" alt="technical-account" src="https://github.com/user-attachments/assets/60b07571-5538-4a48-9517-8cb1d4df14ee" />
+
+
 2. **Obtain Technical Account Details:**
    - Download the service account JSON credentials
    - This file contains the private key and certificate information needed for authentication
