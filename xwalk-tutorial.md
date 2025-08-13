@@ -109,7 +109,7 @@ After setting up the service credentials, you need to grant the technical accoun
 
 3. **Add to DAM Users Group:**
    - Navigate to the **Groups** tab
-   - Add the user to the **DAM Users** group (this provides write access to assets)
+   - Add the technical account to the **DAM Users** group (this provides write access to assets)
    - You may also need to add other appropriate groups depending on your content structure and permissions requirements
    - Click **Save and Close**
 
