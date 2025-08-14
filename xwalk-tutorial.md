@@ -72,11 +72,8 @@ To enable automated content synchronization, you need to set up authentication b
    - Navigate to your AEM Developer Console
    - Go to the Integrations section
    - Create or access your technical account details
-
-
-     <img width="895" height="643" alt="technical-account" src="https://github.com/user-attachments/assets/60b07571-5538-4a48-9517-8cb1d4df14ee" />
-
-
+<img width="955" height="569" alt="Screenshot 2025-08-14 at 10 50 32 AM" src="https://github.com/user-attachments/assets/143a1b48-e9b1-4720-9a0b-ec3d5826d140" />
+     
 2. **Obtain Technical Account Details:**
    - Download the service account JSON credentials
    - This file contains the private key and certificate information needed for authentication
