@@ -79,10 +79,12 @@ To enable automated content synchronization, you need to set up authentication b
    - This file contains the private key and certificate information needed for authentication
 
 3. **Create GitHub Secret:**
-   - Base64 encode your credentials:
+   - Base64 encode your credentials using one of these methods:
      ```bash
      echo -n "your-json-credentials" | base64
      ```
+     - Alternatively, you can use an online tool like [base64encode.org](https://www.base64encode.org/) to encode your Service Credentials JSON
+      
    - In your GitHub repository, go to Settings > Secrets and variables > Actions
    - Create a new repository secret with the encoded credentials
    - Name it appropriately (i.e., `AEM_SERVICE_CREDENTIALS`)
@@ -126,8 +128,4 @@ After setting up the service credentials, you need to grant the technical accoun
 
 - [AEM Live Documentation](https://www.aem.live/)
 - [Edge Delivery Services Documentation](https://www.aem.live/developer/)
-- [GitHub Repository Issues](https://github.com/adobe-rnd/aem-boilerplate-xwalk/issues)
 
----
-
-*This tutorial provides the foundational steps for setting up a crosswalk integration. For more detailed technical information, refer to the official AEM Live documentation.*
