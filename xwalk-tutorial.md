@@ -91,6 +91,8 @@ To enable automated content synchronization, you need to set up authentication b
    - Create a new repository secret with the encoded credentials
    - Name it appropriately (i.e., `AEM_SERVICE_CREDENTIALS`)
 
+   <img width="1150" height="540" alt="Screenshot 2025-08-14 at 11 34 06 AM" src="https://github.com/user-attachments/assets/0261908d-30f3-4e77-8ae3-9324967260a8" />
+
 ### 5. Configure Technical Account Permissions in AEM
 
 After setting up the service credentials, you need to grant the technical account proper permissions in AEM to enable content synchronization.
