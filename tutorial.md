@@ -15,11 +15,11 @@ The migration process consists of six key steps to transform your existing websi
 
 This guide assumes that the following have been already setup for you as per the instructions [here](support.md#access-request-process).
 
-- A **SharePoint Folder** that you have been provisioned with.
-- A **GitHub Repository** created from [sta-boilerplate](https://github.com/aemdemos/sta-boilerplate), with [AEMY](https://github.com/apps/aem-aemy) and [AEM Code Sync](https://github.com/apps/aem-code-sync) installed, and `fstab.yaml` configured to point to your SharePoint folder.
+- A **SharePoint Folder** or **DA Folder** that you have been provisioned with (depending on your project type).
+- A **GitHub Repository** created from [sta-boilerplate](https://github.com/aemdemos/sta-boilerplate), with [AEMY](https://github.com/apps/aem-aemy) and [AEM Code Sync](https://github.com/apps/aem-code-sync) installed, and `fstab.yaml` configured to point to your content source.
 - The **Preview & Live URLs** for viewing your future migrated site.
 
-Install the [**AEM Sidekick browser extension**](https://www.aem.live/docs/sidekick) for your project as it is helpful for previewing and publishing content updates from SharePoint to your Edge Delivery site. Sidekick is not required for using Experience Catalyst itself, which operates independently of the extension.
+Install the [**AEM Sidekick browser extension**](https://www.aem.live/docs/sidekick) for your project as it is helpful for previewing and publishing content updates from your content source (SharePoint or DA) to your Edge Delivery site. Sidekick is not required for using Experience Catalyst itself, which operates independently of the extension.
 
 1. **Go to your preview URL**: You can find the preview URL in the "Environment" section of code repo readme.md file. The preview URL will show a "404 Page Not Found" message, which is expected for a new project.
 2. **Check for the Sidekick bar**: If you do **not** see a gray Sidekick bar at the bottom of the page, install the [AEM Sidekick extension from the Chrome Web Store](https://chromewebstore.google.com/detail/igkmdomcgoebiipaifhmpfjhbjccggml). Note that this requires a Chromium-based browser, such as Google Chrome or Microsoft Edge.
@@ -140,7 +140,7 @@ After this task is finished, you won't get a pull request as in the previous ste
 
 ### Upload content
 
-In this step, AEMY will upload the generated documents to our SharePoint folder.
+In this step, AEMY will upload the generated documents to your content source (SharePoint or DA).
 
 1. Create a new issue
 2. **Title**: `Upload content`
@@ -152,7 +152,7 @@ In this step, AEMY will upload the generated documents to our SharePoint folder.
 
 Once AEMY is done with this task:
 1. Close this issue.
-2. Go to your Sharepoint folder, select all files present in your website folder and click **Preview** button on sidekick.
+2. Go to your content source folder (SharePoint or DA), select all files present in your website folder and click **Preview** button on sidekick.
 4. **Success**: The content from your site is now all on Edge Delivery! You can check the content on the preview URL (which gave 404 error before you started with Step 1 of this tutorial)
 
 <img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 54 34" src="https://github.com/user-attachments/assets/88781614-fb39-40cd-8e5a-56b814e72eae" />
@@ -188,7 +188,7 @@ Once AEMY is done with this task:
 
 For any of the blocks present in the imported content, you can style it using AEMY.
 
-1. In your SharePoint folder, go to the `index.docx` document
+1. In your content source folder (SharePoint or DA), go to the `index.docx` document
 2. From the content, copy any block and variant name, like for example: `Cards (cards32)`
 3. On GitHub, create a new issue
 4. **Title**: `Style block`
