@@ -47,6 +47,8 @@ Before proceeding with authentication setup, you need to create your AEM site us
    - **GitHub Repository URL:** Provide the full URL of your GitHub repository (e.g., `https://github.com/aemdemos/sta-xwalk-e2e`)
    
    > **Important:** The Site Title and Site Name must exactly match your GitHub repository name for proper synchronization.
+   <img width="505" height="708" alt="Screenshot 2025-08-14 at 11 28 23 AM" src="https://github.com/user-attachments/assets/d93adba6-128d-4fd7-a32c-dd7da6598231" />
+
 
 4. **Complete Site Creation:**
    - Click **Create**
