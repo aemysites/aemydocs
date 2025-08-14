@@ -12,7 +12,7 @@ This tutorial will guide you through the process of setting up a crosswalk integ
 
 ### 1. Create a Repository Request
 
-First, you'll need to create a request for a new repository that will be connected to your AEM instance.
+This guide assumes that the following have been already setup for you as per the instructions [here](support.md#access-request-process).
 
 **Required Information:**
 - Provide your AEM URL (e.g., `https://author-p141866-e1455422.adobeaemcloud.com`)
