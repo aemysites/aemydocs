@@ -188,7 +188,7 @@ Once AEMY is done with this task:
 
 For any of the blocks present in the imported content, you can style it using AEMY.
 
-1. In your content source folder (SharePoint or DA), go to the `index` document
+1. In your content source folder (SharePoint or DA), go to the `index.docx` document
 2. From the content, copy any block and variant name, like for example: `Cards (cards32)`
 3. On GitHub, create a new issue
 4. **Title**: `Style block`
