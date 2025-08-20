@@ -28,7 +28,7 @@ AEMY prompts must be written precisely as documented. The bot uses pattern match
 | `Import content` | Runs import process | Simplified syntax |
 | `Download imported content` | Request new download link for content | When link expires |
 | [**Upload content**](#upload-content) |
-| `Upload content <url>` | Upload to SharePoint | Simplified syntax |
+| `Upload content <url>` | Upload to content source (SharePoint or DA) | Simplified syntax |
 | `<url> Upload and preview` | Alternative syntax | Also works |
 | [**Branding**](#branding) |
 | `Branding` | Global typography | Simplified syntax |
@@ -328,7 +328,7 @@ Look for the job ID in the import completion message:
 
 ### Primary syntax: Upload content
 
-Uploads imported content to SharePoint.
+Uploads imported content to your content source (SharePoint or DA).
 
 #### Syntax
 ```
@@ -352,7 +352,7 @@ Upload the content using this download url [download-url] and preview it
 - `aemy-go`
 
 #### Prerequisites
-- SharePoint workflow installed (from AEMY Setup PR)
+- SharePoint/DA upload workflow installed (from AEMY Setup PR)
 - Completed content import
 
 ---
@@ -473,7 +473,7 @@ This will create Github issues to style each block on the page. Note that you mu
 #### Troubleshooting
 
 **Error: Block not found in content**
-- Check that content has been uploaded to SharePoint
+- Check that content has been uploaded to your content source (SharePoint or DA)
 - Verify the block name matches inventory.json exactly
 - Ensure the preview URL is accessible
 
