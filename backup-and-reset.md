@@ -27,6 +27,10 @@ This guide provides instructions for using the automated backup and reset functi
      - `workflow` (Update GitHub Action workflows)
    - Click **Generate token**
 
+     <img width="499" height="261" alt="Screenshot 2025-08-21 at 3 07 36 PM" src="https://github.com/user-attachments/assets/560f49bc-acc8-40f8-a682-c12e34f1b330" />
+
+     <img width="1068" height="351" alt="Screenshot 2025-08-21 at 3 08 48 PM" src="https://github.com/user-attachments/assets/9e997459-8295-4a50-8bb2-fe1706f8e776" />
+
 3. **Copy Token:**
    - **Important:** Copy the token immediately as it won't be shown again
    - Store it securely for the next step
