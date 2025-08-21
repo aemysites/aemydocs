@@ -1,4 +1,4 @@
-# Backup and Reset Guide
+# Backup and Reset Guide for Sharepoint based repos
 
 This guide provides instructions for using the automated backup and reset functionality through GitHub workflows.
 
