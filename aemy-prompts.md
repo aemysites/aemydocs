@@ -17,10 +17,12 @@ AEMY prompts must be written precisely as documented. The bot uses pattern match
 | `analyze the website <url>` | Alternative syntax | Also works |
 | `analyze the website <url> by crawling` | Generates site-urls.json by crawling | Can take longer |
 | `validate the site urls` | Validates manually edited URLs | Use after manual edits |
+| `delete site urls` | Delete result from previous run | For new attempts |
 | [**Block inventory**](#block-inventory) |
 | `Block inventory` | Creates inventory.json | Simplified syntax |
 | `generate inventory` | Alternative syntax | Also works |
 | `generate inventory for all site urls` | Includes all URLs | More comprehensive |
+| `delete inventory` | Delete result from previous run | For new attempts |
 | [**Import script**](#import-script) |
 | `Import script` | Generates import.js and parsers | Simplified syntax |
 | `create an import script for the site` | Alternative syntax | More comprehensive |
@@ -161,6 +163,26 @@ Checks all URLs in site-urls.json for accessibility and updates metadata.
 - `aemy-help`
 - `aemy-go`
 
+### delete the site urls
+
+Deletes the site-urls.json and allows for a fresh analyse.
+
+#### Syntax
+```
+Delete the site urls
+```
+or in combination
+```
+Delete the site urls and anaylse the website [URL]
+```
+
+#### Description
+Deletes the file from the repository.
+
+#### Labels Required
+- `aemy-help`
+- `aemy-go`
+
 ---
 
 ## Block inventory
@@ -192,6 +214,26 @@ Analyzes all pages to identify unique design patterns and components.
 
 #### Prerequisites
 - Completed website analysis (site-urls.json exists)
+
+### delete the inventory
+
+Deletes the inventory.json and allows for a fresh inventory.
+
+#### Syntax
+```
+Delete the inventory
+```
+or in combination
+```
+Delete the inventory and generate inventory
+```
+
+#### Description
+Deletes the inventory from the repository.
+
+#### Labels Required
+- `aemy-help`
+- `aemy-go`
 
 ---
 
