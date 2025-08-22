@@ -58,4 +58,7 @@ Many features teased at Summit/Sneaks (full UI, automated process) are being act
 Sites with deep backend dependencies (e.g., complex PIM, e-commerce) are generally not supported, as heavy data integrations are out of scope for the current toolset.
 Example: Large ecommerce brands with dynamic content and PIM integration require special consideration and may fall outside the supported scope of the tool.
 
+### How can I reset my repository or start over with a new site?
+If you want to try migrating another site or need to reset your current setup, you can use the automated backup and reset functionality. This allows you to safely backup your current work and reset your repository to a clean state for a new migration. See the [Backup and Reset Guide](backup-and-reset.md) for detailed instructions.
+
 
