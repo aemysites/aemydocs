@@ -21,7 +21,7 @@ Access to Experience Catalyst is currently limited to Adobe internal users.
 ## DA Projects: IMS Token Setup
 
 ### Step 1: Generate IMS Token
-- Follow the [IMS API reference](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/ims#fetching-access-tokens) to generate an Access Token.
+- Follow the [IMS API reference](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/ims#fetching-access-tokens) to generate an Access Token. You may use any IMS org that has permission to preview/publish to Edge Delivery.
 
 ### Step 2: Add Token to GitHub Repository
 - Go to your GitHub repository
