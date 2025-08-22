@@ -18,6 +18,7 @@ This guide assumes that the following have been already setup for you as per the
 - A **SharePoint Folder** or **DA Folder** that you have been provisioned with (depending on your project type).
 - A **GitHub Repository** created from [sta-boilerplate](https://github.com/aemdemos/sta-boilerplate), with [AEMY](https://github.com/apps/aem-aemy) and [AEM Code Sync](https://github.com/apps/aem-code-sync) installed, and `fstab.yaml` configured to point to your content source.
 - The **Preview & Live URLs** for viewing your future migrated site.
+- For DA projects, the `IMS_TOKEN` has been added as a repository secret. See [DA Projects: IMS Token Setup](support.md#da-projects-ims-token-setup) if you haven't set it up yet.
 
 Install the [**AEM Sidekick browser extension**](https://www.aem.live/docs/sidekick) for your project as it is helpful for previewing and publishing content updates from your content source (SharePoint or DA) to your Edge Delivery site. Sidekick is not required for using Experience Catalyst itself, which operates independently of the extension.
 
@@ -142,6 +143,8 @@ After this task is finished, you won't get a pull request as in the previous ste
 
 In this step, AEMY will upload the generated documents to your content source (SharePoint or DA).
 
+**Note**: For DA projects, you'll need an IMS token for this step. See [DA Projects: IMS Token Setup](support.md#da-projects-ims-token-setup) if you haven't set it up yet.
+
 1. Create a new issue
 2. **Title**: `Upload content`
 3. **Description**: `Upload the content using this download url [insert the lengthy URL AEMY gave you in the last step] and preview it`.
@@ -150,10 +153,8 @@ In this step, AEMY will upload the generated documents to your content source (S
 
 <img width="1174" height="1030" alt="Screenshot 2025-07-10 at 19 05 50" src="https://github.com/user-attachments/assets/ceffc74c-7c34-498a-8015-0ab4b89c7a53" />
 
-Once AEMY is done with this task:
-1. Close this issue.
-2. Go to your content source folder (SharePoint or DA), select all files present in your website folder and click **Preview** button on sidekick.
-4. **Success**: The content from your site is now all on Edge Delivery! You can check the content on the preview URL (which gave 404 error before you started with Step 1 of this tutorial)
+Once AEMY is done with this task, you can close this issue.
+The content from your site is now all on Edge Delivery! You can check the content on the preview URL (which gave 404 error before you started with Step 1 of this tutorial)
 
 <img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 54 34" src="https://github.com/user-attachments/assets/88781614-fb39-40cd-8e5a-56b814e72eae" />
 
@@ -188,7 +189,7 @@ Once AEMY is done with this task:
 
 For any of the blocks present in the imported content, you can style it using AEMY.
 
-1. In your content source folder (SharePoint or DA), go to the `index.docx` document
+1. In your content source folder (SharePoint or DA), go to the `index` document
 2. From the content, copy any block and variant name, like for example: `Cards (cards32)`
 3. On GitHub, create a new issue
 4. **Title**: `Style block`
@@ -209,7 +210,7 @@ Once AEMY is done with this task (Check for `aemy-done` label on the PR):
 <img width="1174" height="1030" alt="Screenshot 2025-07-10 at 18 59 41" src="https://github.com/user-attachments/assets/e1aa1e5a-63e3-4fde-a048-069dada4809d" />
 
 **Note**: 
-- Repeat Step 6 for the rest of the blocks in the `index.docx` page.
+- Repeat Step 6 for the rest of the blocks in the `index` page.
 - While you can style distinct blocks parallelly, don't style variants of the same block at the same time. e.g `Columns (columns30)` and `Columns (columns40)`
 
 **Reference**: [Style block command details](aemy-prompts.md#style-block)
