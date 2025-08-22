@@ -242,4 +242,8 @@ https://example.com/page3
 ```
   - Note: Only the URLs you provide will be included. As a result, linking to other pages that were not included will result in a 404 on your Edge Delivery Services site
 
-IMPORTANT: The above process broke down the process in distinct steps. To have AEMY run all steps in sequence, you can use `Catalyse` flow. See this [video](https://adobe.sharepoint.com/:v:/s/AEMDemos/EcBetvTtRG9OuISZgF8czQkBheNgsTf28DhEg9LN-VDVEw?e=58XxCm) to understand how it works. Happy Catalyzing! 
+IMPORTANT: The above process broke down the process in distinct steps. To have AEMY run all steps in sequence, you can use `Catalyse` flow. See this [video](https://adobe.sharepoint.com/:v:/s/AEMDemos/EcBetvTtRG9OuISZgF8czQkBheNgsTf28DhEg9LN-VDVEw?e=58XxCm) to understand how it works. Happy Catalyzing!
+
+## Next Steps
+
+Congratulations on completing your first migration! If you want to try migrating another site or need to reset your repository to start fresh, check out the [Backup and Reset Guide](backup-and-reset.md) for instructions on safely backing up your work and resetting your environment. 
