@@ -20,6 +20,7 @@ This guide assumes that the following have been already setup for you as per the
 - A **SharePoint Folder** or **DA Folder** that you have been provisioned with (depending on your project type).
 - A **GitHub Repository** created from [sta-boilerplate](https://github.com/aemdemos/sta-boilerplate), with [AEMY](https://github.com/apps/aem-aemy) and [AEM Code Sync](https://github.com/apps/aem-code-sync) installed, and `fstab.yaml` configured to point to your content source.
 - The **Preview & Live URLs** for viewing your future migrated site.
+- For DA projects, the `IMS_TOKEN` has been added as a repository secret. See [DA Projects: IMS Token Setup](support.md#da-projects-ims-token-setup) if you haven't set it up yet.
 
 Install the [**AEM Sidekick browser extension**](https://www.aem.live/docs/sidekick) for your project as it is helpful for previewing and publishing content updates from your content source (SharePoint or DA) to your Edge Delivery site. Sidekick is not required for using Experience Catalyst itself, which operates independently of the extension.
 
@@ -144,6 +145,8 @@ After this task is finished, you won't get a pull request as in the previous ste
 
 In this step, AEMY will upload the generated documents to your content source (SharePoint or DA).
 
+**Note**: For DA projects, you'll need an IMS token for this step. See [DA Projects: IMS Token Setup](support.md#da-projects-ims-token-setup) if you haven't set it up yet.
+
 1. Create a new issue
 2. **Title**: `Upload content`
 3. **Description**: `Upload the content using this download url [insert the lengthy URL AEMY gave you in the last step] and preview it`.
@@ -188,7 +191,7 @@ Once AEMY is done with this task:
 
 For any of the blocks present in the imported content, you can style it using AEMY.
 
-1. In your content source folder (SharePoint or DA), go to the `index.docx` document
+1. In your content source folder (SharePoint or DA), go to the `index` document
 2. From the content, copy any block and variant name, like for example: `Cards (cards32)`
 3. On GitHub, create a new issue
 4. **Title**: `Style block`
