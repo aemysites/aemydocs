@@ -1,6 +1,10 @@
 # DA Projects: IMS Token Setup
 
-For DA (Digital Asset) projects, you need an IMS token with the appropriate scopes to enable upload and preview/publish functionality. Based on the Slack discussions and technical requirements, your IMS token needs:
+## Permissions to your site
+Your **email ID** has been granted write access to the site folder and children in the org's access config.
+
+## IMS Token Requirements
+To enable upload and preview/publish functionality, you need an IMS token with the appropriate scopes. Your IMS token needs:
 
 - **`aem.frontend.all`** scope: Required for Helix Admin API access
 - **`openid`** scope: Returns basic profile information (such as email) for user identification and additional business logic
@@ -67,24 +71,15 @@ Based on the Slack discussions, you need to ensure:
 
 Here's how the authentication works:
 
-1. **Authentication Check**: Helix Admin verifies your token has the required scope (`aem.frontend.all`)
-2. **Authorization Check**: Helix Admin checks if your user (from the token) is configured in the project's access settings
-3. **Content Operations**: If both checks pass, you can upload/preview/publish content
+1. **Authentication Check**: Helix Admin verifies your token has the required scope (`aem.frontend.all`).
+2. **Authorization Check**: Helix Admin checks if your user (from the token) is configured in the project's access settings. This should already be satisfied since your email id has been granted write access to the site content.
+3. **Content Operations**: If both checks pass, you can upload/preview/publish content.
 
-Your email ID has been granted write access to the site and children in the org's access config, which should satisfy the authorization requirement.
 
 ## Troubleshooting
 
 ### Token Rejected by Helix Admin
 - Verify your token includes the `aem.frontend.all` scope
-- Check that your user is properly configured in the project's access settings
-
-### User ID vs Email Address Issues
-Modern IMS tokens may contain `user_id` in format `userGUID@orgGUID` rather than traditional email addresses. If your access is configured using your email address but the token contains a different user identifier, there might be a mismatch.
-
-### Token Expiration
-- Option 1 tokens expire relatively quickly and need manual renewal
-- Option 2 tokens typically have longer lifespans but still require periodic renewal
 
 ## Verification
 
