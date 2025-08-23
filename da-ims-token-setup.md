@@ -55,12 +55,7 @@ This approach uses an existing IMS org/client that already has the required scop
 - Use your IMS org that has permission to preview/publish to Edge Delivery Services
 - Ensure your token includes both required scopes
 
-### Step 3: Configure User Access
-Based on the Slack discussions, you need to ensure:
-- Your user email/ID is configured in the project's access configuration with appropriate permissions
-- You have write access to the site folder and children in the org's access config
-
-### Step 4: Add Token to GitHub Repository
+### Step 3: Add Token to GitHub Repository
 - Go to your GitHub repository
 - Navigate to `Settings` > `Secrets and variables` > `Actions`
 - Click `New repository secret` with the following:
