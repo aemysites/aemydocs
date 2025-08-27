@@ -2,7 +2,7 @@
 
 In this tutorial, we will migrate the home page of [www.wknd-trendsetters.site](https://www.wknd-trendsetters.site/) to Edge Delivery Services via Experience Catalyst, walking you through how to use Experience Catalyst and AEMY, your AI-powered assistant for migration-related tasks.
 
-The migration process consists of six key steps to transform your existing website into a high-performance Edge Delivery site:
+The migration process consists of eight key steps to transform your existing website into a high-performance Edge Delivery site:
 
 1. **Analyze website** - Lists the site URLs
 2. **Inventory** - Generates a list of unique block types
@@ -10,6 +10,8 @@ The migration process consists of six key steps to transform your existing websi
 4. **Import and upload content** - Convert the content to Edge Delivery
 5. **Branding** - Apply global fonts and styles
 6. **Block Styling** - Apply individual block styles
+7. **Critique** - Analyze and provide style feedback for blocks
+8. **Validate content** - Validate content differences between original and migrated content and provide feedback
 
 ## Getting Ready
 
@@ -215,6 +217,96 @@ Once AEMY is done with this task (Check for `aemy-done` label on the PR):
 
 **Reference**: [Style block command details](aemy-prompts.md#style-block)
 
+## Step 7: Critique
+
+In this step, AEMY will analyze and critique your blocks, providing detailed style feedback to help improve the visual quality and consistency of your migrated content.
+
+### Critique a specific block
+
+To critique a specific block:
+
+1. In your content source folder (SharePoint or DA), go to any document and identify a block you want to critique
+2. Copy the exact block and variant name, like for example: `Hero (hero42)`
+3. On GitHub, create a new issue
+4. **Title**: `Critique block`
+5. **Description**: `Criticize the block [block name (variant name)]` e.g `Criticize the block Hero (hero42)`
+6. **Labels**: `aemy-help`, `aemy-go`
+7. Click **Create**
+
+**Important**: Use the exact block and variant name as they appear in your content document.
+
+[Screenshot placeholder for critique block issue creation]
+
+Once AEMY completes the critique task:
+1. Check for the `aemy-done` label on the issue
+2. AEMY will generate a `critique.json` file containing style feedback for the block
+3. Review the feedback and use it to improve your styling
+
+[Screenshot placeholder for critique results]
+
+**Summary**: With the critique prompts, AEMY analyzes your blocks and provides detailed style feedback, helping you identify areas for improvement and ensuring consistency across your migrated site.
+
+**Reference**: [Critique command details](aemy-prompts.md#critique)
+
+## Step 8: Validate content
+
+In this step, AEMY will validate the content structure and quality of your blocks or pages, ensuring that the migration process preserved the content integrity and providing feedback on any issues found.
+
+### Validate content for a specific block
+
+To validate content for a specific block:
+
+1. In your content source folder (SharePoint or DA), identify a block you want to validate
+2. Copy the exact block and variant name, like for example: `Cards (cards8)`
+3. On GitHub, create a new issue
+4. **Title**: `Validate content for block`
+5. **Description**: `Validate content for block [block name (variant name)]` e.g `Validate content for block Cards (cards8)`
+6. **Labels**: `aemy-help`, `aemy-go`
+7. Click **Create**
+
+**Important**: Use the exact block and variant name as they appear in your content document.
+
+[Screenshot placeholder for validate content block issue creation]
+
+Once AEMY completes the content validation task:
+1. Check for the `aemy-done` label on the issue
+2. AEMY will provide content differences feedback for the block on issue comments
+
+[Screenshot placeholder for validate content block issue comments]
+
+### Validate content for a specific page
+
+To validate content for an entire page:
+
+1. Create a new issue
+2. **Title**: `Validate content for page`
+3. **Description**: `Validate content for page https://www.wknd-trendsetters.site/faq` (use your original site URL)
+4. **Labels**: `aemy-help`, `aemy-go`
+5. Click **Create**
+
+[Screenshot placeholder for validate content page issue creation]
+
+### Validate content for all pages
+
+To validate content for all pages at once:
+
+1. Create a new issue
+2. **Title**: `Validate content for all pages`
+3. **Description**: `Validate content for all pages`
+4. **Labels**: `aemy-help`, `aemy-go`
+5. Click **Create**
+
+Once AEMY completes the content validation task:
+1. Check for the `aemy-done` label on the issue
+2. AEMY will provide feedback results on the issue in table format and will also open a PR with a `content_validation.json` file containing content differences feedback for the analyzed pages
+3. Review the feedback to identify any content issues or discrepancies between the original and migrated content
+
+[Screenshot placeholder for content validation table]
+
+**Summary**: With the content validation prompts, AEMY analyzes your migrated content and compares it with the original source, helping you identify and resolve any content issues or inconsistencies that may have occurred during the migration process.
+
+**Reference**: [Validate content command details](aemy-prompts.md#validate-content)
+
 ## Next Steps
 
 **Congratulations!** You've successfully migrated a website using Experience Catalyst. This AI-powered approach reduces migration time from months to hours while maintaining full control over the output.
@@ -225,6 +317,7 @@ To understand what happened, explore these key files:
 - `/tools/importer/import.js`: The import script
 - `/tools/importer/parsers`: The block parsers
 - `/tools/importer/transformers`: The HTML transformers
+- `/tools/importer/content_validation.json`: Content validation feedback (generated by validate content step)
 - `/styles/`: Global fonts and styles
 - `/blocks/`: Block implementations and styles
 
