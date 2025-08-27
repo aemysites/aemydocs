@@ -226,10 +226,10 @@ In this step, AEMY will analyze and critique your blocks, providing detailed sty
 To critique a specific block:
 
 1. In your content source folder (SharePoint or DA), go to any document and identify a block you want to critique
-2. Copy the exact block and variant name, like for example: `Hero (hero42)`
+2. Copy the exact block and variant name, like for example: `Columns (columns5)`
 3. On GitHub, create a new issue
 4. **Title**: `Critique block`
-5. **Description**: `Criticize the block [block name (variant name)]` e.g `Criticize the block Hero (hero42)`
+5. **Description**: `Criticize the block [block name (variant name)]` e.g `Criticize the block Columns (columns5)`
 6. **Labels**: `aemy-help`, `aemy-go`
 7. Click **Create**
 
@@ -239,10 +239,20 @@ To critique a specific block:
 
 Once AEMY completes the critique task:
 1. Check for the `aemy-done` label on the issue
-2. AEMY will generate a `critique.json` file containing style feedback for the block
-3. Review the feedback and use it to improve your styling
+2. AEMY will provide style feedback for the block on issue comments
 
-[Screenshot placeholder for critique results]
+[Screenshot placeholder for critique issue comments]
+
+Then, you can use the feedback to improve your styling. For example:
+1. Create a new issue
+2. **Title**: `Style block`
+3. **Description**: `Style block [block name (variant name)] Feedback: [feedback from critique issue]`
+4. **Labels**: `aemy-help`, `aemy-go`
+5. Click **Create**
+
+[Screenshot placeholder for style block issue creation with feedback]
+
+Refer [Style block command details](aemy-prompts.md#style-block) for more details on how to style a block.
 
 **Summary**: With the critique prompts, AEMY analyzes your blocks and provides detailed style feedback, helping you identify areas for improvement and ensuring consistency across your migrated site.
 
