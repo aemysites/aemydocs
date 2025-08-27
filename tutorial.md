@@ -235,13 +235,13 @@ To critique a specific block:
 
 **Important**: Use the exact block and variant name as they appear in your content document.
 
-[Screenshot placeholder for critique block issue creation]
+<img width="1009" height="824" alt="image" src="https://github.com/user-attachments/assets/4b04bb17-efa9-4b37-96dc-33ca1b060c9f" />
 
 Once AEMY completes the critique task:
 1. Check for the `aemy-done` label on the issue
 2. AEMY will provide style feedback for the block on issue comments
 
-[Screenshot placeholder for critique issue comments]
+<img width="1009" height="856" alt="image" src="https://github.com/user-attachments/assets/fcd53132-71a2-4290-8b7a-55de60ecf9f2" />
 
 Then, you can use the feedback to improve your styling. For example:
 1. Create a new issue
@@ -250,7 +250,7 @@ Then, you can use the feedback to improve your styling. For example:
 4. **Labels**: `aemy-help`, `aemy-go`
 5. Click **Create**
 
-[Screenshot placeholder for style block issue creation with feedback]
+<img width="1009" height="856" alt="image" src="https://github.com/user-attachments/assets/4672c901-a570-402e-9251-d60ad8d1200a" />
 
 Refer [Style block command details](aemy-prompts.md#style-block) for more details on how to style a block.
 
@@ -276,13 +276,13 @@ To validate content for a specific block:
 
 **Important**: Use the exact block and variant name as they appear in your content document.
 
-[Screenshot placeholder for validate content block issue creation]
+<img width="1009" height="856" alt="image" src="https://github.com/user-attachments/assets/e5aa702b-1be0-4128-b3e9-f6ef7e212cca" />
 
 Once AEMY completes the content validation task:
 1. Check for the `aemy-done` label on the issue
 2. AEMY will provide content differences feedback for the block on issue comments
 
-[Screenshot placeholder for validate content block issue comments]
+<img width="1009" height="856" alt="image" src="https://github.com/user-attachments/assets/084df778-aa43-4271-8daa-15f5ca930fe0" />
 
 ### Validate content for a specific page
 
@@ -294,7 +294,7 @@ To validate content for an entire page:
 4. **Labels**: `aemy-help`, `aemy-go`
 5. Click **Create**
 
-[Screenshot placeholder for validate content page issue creation]
+<img width="1009" height="856" alt="image" src="https://github.com/user-attachments/assets/d16dd0cb-a881-4e37-a745-78557948acaa" />
 
 ### Validate content for all pages
 
@@ -311,7 +311,7 @@ Once AEMY completes the content validation task:
 2. AEMY will provide feedback results on the issue in table format and will also open a PR with a `content_validation.json` file containing content differences feedback for the analyzed pages
 3. Review the feedback to identify any content issues or discrepancies between the original and migrated content
 
-[Screenshot placeholder for content validation table]
+<img width="1009" height="856" alt="image" src="https://github.com/user-attachments/assets/2a1a31d5-5bab-48d4-b093-df95205a26e7" />
 
 **Summary**: With the content validation prompts, AEMY analyzes your migrated content and compares it with the original source, helping you identify and resolve any content issues or inconsistencies that may have occurred during the migration process.
 
