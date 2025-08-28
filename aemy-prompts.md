@@ -42,8 +42,8 @@ AEMY prompts must be written precisely as documented. The bot uses pattern match
 | `Critique for block <block and variant name>` | Alternative syntax | Also works |
 | [**Validate content**](#validate-content) |
 | `Validate content for block <block and variant name>` | Validates content for specific block and provides content feedback | Use exact inventory name |
-| `Validate content for page <origin_page_url>` | Validates content for given page and generates content_validation.json | Use the source URL, not <site>.aem.page |
-| `Validate content for all pages` | Validates content for all pages and generates content_validation.json | Uses page templates if pages are more than 5 |
+| `Validate content for page <origin_page_url>` | Validates page content and generates a markdown table and content_validation.json with the results | Use the source URL, not <site>.aem.page |
+| `Validate content for all pages` | Validates content for all pages and generates a markdown table and content_validation.json with the results | Uses page templates if pages are more than 5 |
 | [**Utility**](#utility-prompts) |
 | `Create styling issues for all blocks` | Batch issue creation | For manual work |
 | `catalyze the website <url>` | Full automation | Complete workflow |
@@ -541,7 +541,7 @@ Validate content for block [block and variant name]
 ```
 
 #### Description
-Validates content differences between original and migrated content for specific blocks or pages, providing detailed content feedback and generating content_validation.json file.
+Validates content differences between original and migrated content for specific blocks or pages, providing detailed content feedback in case of blocks or generating a markdown table and content_validation.json for pages.
 
 #### Parameters
 - **block-name** (required for block validation) - Exact name from inventory.json including variant ID
@@ -570,7 +570,8 @@ Validate content for all pages
 
 #### Notes
 - Uses page templates if pages are more than 5
-- Generates content_validation.json output file. This file contains content differences feedback for given pages.
+- Generates a markdown table containing content validation results.
+- Generates a content_validation.json output file containing content differences feedback for given pages.
 - Use exact inventory name for block validations
 
 ---
