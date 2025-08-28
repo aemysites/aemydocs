@@ -37,6 +37,13 @@ AEMY prompts must be written precisely as documented. The bot uses pattern match
 | `Style <block and variant name>` | Style specific block | Use exact inventory name |
 | `style the <block> block` | Alternative syntax | Also works |
 | `style all the blocks on <origin_page_url>` | This will create issues to style all the blocks on a page | Use the source URL, not <site>.aem.page |
+| [**Critique**](#critique) |
+| `Criticize the block <block and variant name>` | Critiques specific block and provides style feedback | Use exact inventory name |
+| `Critique for block <block and variant name>` | Alternative syntax | Also works |
+| [**Validate content**](#validate-content) |
+| `Validate content for block <block and variant name>` | Validates content for specific block and provides content feedback | Use exact inventory name |
+| `Validate content for page <origin_page_url>` | Validates page content and generates a markdown table and content_validation.json with the results | Use the source URL, not <site>.aem.page |
+| `Validate content for all pages` | Validates content for all pages and generates a markdown table and content_validation.json with the results | Uses page templates if pages are more than 5 |
 | [**Utility**](#utility-prompts) |
 | `Create styling issues for all blocks` | Batch issue creation | For manual work |
 | `catalyze the website <url>` | Full automation | Complete workflow |
@@ -480,6 +487,92 @@ This will create Github issues to style each block on the page. Note that you mu
 **Styling doesn't match original**
 - Provide specific feedback for iteration
 - AEMY can refine existing PRs with additional instructions
+
+---
+
+## Critique
+
+### Primary syntax: Criticize the block [block and variant name]
+
+Critiques specific block and provides style feedback.
+
+#### Syntax
+```
+Criticize the block [block and variant name]
+```
+
+#### Alternative Syntax
+```
+Critique for block [block and variant name]
+```
+
+#### Description
+Analyzes and critiques specific block, providing detailed style feedback.
+
+#### Parameters
+- **block-name** (required for block critique) - Exact name from inventory.json including variant ID
+
+#### Labels Required
+- `aemy-help`
+- `aemy-go` (recommended)
+
+#### Examples
+
+**Block Critique**
+```
+Criticize the block Hero (hero42)
+```
+or
+```
+Critique for block Hero (hero42)
+```
+
+---
+
+## Validate content
+
+### Primary syntax: Validate content for block [block and variant name]
+
+Validates content for specific block and provides content feedback.
+
+#### Syntax
+```
+Validate content for block [block and variant name]
+```
+
+#### Description
+Validates content differences between original and migrated content for specific blocks or pages, providing detailed content feedback in case of blocks or generating a markdown table and content_validation.json for pages.
+
+#### Parameters
+- **block-name** (required for block validation) - Exact name from inventory.json including variant ID
+- **origin_page_url** (required for page validation) - Use the source URL, not <site>.aem.page
+
+#### Labels Required
+- `aemy-help`
+- `aemy-go` (recommended)
+
+#### Examples
+
+**Single Block Content Validation**
+```
+Validate content for block Hero (hero42)
+```
+
+**Single Page Content Validation**
+```
+Validate content for page https://example.com/about
+```
+
+**All Pages Content Validation**
+```
+Validate content for all pages
+```
+
+#### Notes
+- Uses page templates if pages are more than 5
+- Generates a markdown table containing content validation results.
+- Generates a content_validation.json output file containing content differences feedback for given pages.
+- Use exact inventory name for block validations
 
 ---
 
