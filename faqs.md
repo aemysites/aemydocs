@@ -58,6 +58,14 @@ Many features teased at Summit/Sneaks (full UI, automated process) are being act
 Sites with deep backend dependencies (e.g., complex PIM, e-commerce) are generally not supported, as heavy data integrations are out of scope for the current toolset.
 Example: Large ecommerce brands with dynamic content and PIM integration require special consideration and may fall outside the supported scope of the tool.
 
+### The customer website has a firewall blocking Experience Catalyst. What could be done?
+The customer needs to fine-tune the firewall rules to allow our public IPs to hit their system without being blocked (be detected as a bot). Our public IPs are:
+- 68.154.123.137
+- 20.161.80.210
+- 18.232.5.47
+- 3.94.219.54
+- 34.205.100.249
+
 ### How can I reset my repository or start over with a new site?
 If you want to try migrating another site or need to reset your current setup, you can use the automated backup and reset functionality. This allows you to safely backup your current work and reset your repository to a clean state for a new migration. See the [Backup and Reset Guide](backup-and-reset.md) for detailed instructions.
 
