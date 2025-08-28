@@ -599,18 +599,9 @@ Create styling issues for the page https://example.com/about
 #### Description
 Creates individual issues for manual or automated styling of each component.
 
-#### Advanced Mode
-> **_NOTE:_** It's recommended to use the `aemy-merge` label when running this aemy command.
-
-```
-Create styling issues for all blocks in advanced mode
-```
-- Automatically starts processing with critique → style → feedback → restyle cycle
-- Takes ~4x longer but produces better results
-
 #### Labels Required
 - `aemy-help`
-- `aemy-go` (for advanced mode)
+- `aemy-go`
 
 ### catalyze the website
 
