@@ -199,7 +199,6 @@ If you have an existing `tools/importer/inventory.json` in your repository and w
 To use incremental mode:
 
 - Add new URL entries to `site-urls.json`, either via an AEMY "Analyze website" prompt or manually
-  - If URLs are added manually, make sure to prompt AEMY to "Validate the site urls" before proceeding
   - Note that all site URL entries must be on the same domain. If a new domain is added to `site-urls.json`, incremental mode will be skipped
 - The presence of an existing `inventory.json` on `main` when a "Block inventory" prompt is issued will trigger incremental mode
   - _To opt out_, remove `inventory.json` from your `main` branch
