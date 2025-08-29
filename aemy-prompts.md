@@ -209,8 +209,7 @@ Notes:
   - In other words, box instances which were grouped as `Hero (hero1)` should retain this mapping
   - The exception to this is if clustering has grouped 2 clusters together when processing a larger URL set
 - Manual changes to move `outliers` into clusters will also be maintained
-- URLs which have been previously processed _will not be processed again_ in incremental mode
-  - We are considering adding an AEMY flag to force all URLs to be processed, but for now you will need to remove inventory.json in order to re-process all URLs
+- Currently, all URLs will be processed again. We are working on optimizations to skip this re-processing step and speed up incremental mode
 
 ---
 
