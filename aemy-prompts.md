@@ -645,7 +645,7 @@ Creates individual issues for manual or automated styling of each component.
 - `aemy-help`
 - `aemy-go`
 
-### catalyze the website
+### Catalyze the Website
 
 Runs the complete migration workflow automatically.
 
@@ -678,6 +678,8 @@ Executes all migration steps in sequence:
 5. Upload content
 6. Brand fonts
 7. Style block
+
+If styling a block fails the first time, it will be tried once more.
 
 #### Labels Required
 - `aemy-help`
