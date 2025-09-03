@@ -222,6 +222,25 @@ Analyzes all pages to identify unique design patterns and components.
 #### Prerequisites
 - Completed website analysis (site-urls.json exists)
 
+#### Incremental mode
+If you have an existing `tools/importer/inventory.json` in your repository and wish to build upon it by processing additional URLs on the same domain, you can use incremental mode.
+
+To use incremental mode:
+
+- Add new URL entries to `site-urls.json`, either via an AEMY "Analyze website" prompt or manually
+  - Note that all site URL entries must be on the same domain. If a new domain is added to `site-urls.json`, incremental mode will be skipped
+- The presence of an existing `inventory.json` on `main` when a "Block inventory" prompt is issued will trigger incremental mode
+  - _To opt out_, remove `inventory.json` from your `main` branch
+
+Notes:
+
+- A best effort will be made to keep all existing cluster mappings stable
+  - In other words, box instances which were grouped as `Hero (hero1)` should retain this mapping
+  - The exception to this is if clustering has grouped 2 clusters together when processing a larger URL set
+- Manual changes to move `outliers` into clusters will also be maintained
+- Data collection is incremental, meaning only new URLs will be crawled and processed
+- Clustering re-runs on the _complete dataset_ (new and existing URLs) to optimize groupings. We are working on optimizations to make the clustering step even more efficient
+
 ### delete the inventory
 
 Deletes the inventory.json and allows for a fresh inventory.
