@@ -2,7 +2,7 @@
 
 In this tutorial, we will migrate the home page of [www.wknd-trendsetters.site](https://www.wknd-trendsetters.site/) to Edge Delivery Services via Experience Catalyst, walking you through how to use Experience Catalyst and AEMY, your AI-powered assistant for migration-related tasks.
 
-The migration process consists of six key steps to transform your existing website into a high-performance Edge Delivery site:
+The migration process consists of eight key steps to transform your existing website into a high-performance Edge Delivery site:
 
 1. **Analyze website** - Lists the site URLs
 2. **Inventory** - Generates a list of unique block types
@@ -10,6 +10,8 @@ The migration process consists of six key steps to transform your existing websi
 4. **Import and upload content** - Convert the content to Edge Delivery
 5. **Branding** - Apply global fonts and styles
 6. **Block Styling** - Apply individual block styles
+7. **Critique** - Analyze and provide style feedback for blocks
+8. **Validate content** - Validate content differences between original and migrated content and provide feedback
 
 ## Getting Ready
 
@@ -18,7 +20,6 @@ This guide assumes that the following have been already setup for you as per the
 - A **SharePoint Folder** or **DA Folder** that you have been provisioned with (depending on your project type).
 - A **GitHub Repository** created from [sta-boilerplate](https://github.com/aemdemos/sta-boilerplate), with [AEMY](https://github.com/apps/aem-aemy) and [AEM Code Sync](https://github.com/apps/aem-code-sync) installed, and `fstab.yaml` configured to point to your content source.
 - The **Preview & Live URLs** for viewing your future migrated site.
-- For DA projects, the `IMS_TOKEN` has been added as a repository secret. See [DA Projects: IMS Token Setup](support.md#da-projects-ims-token-setup) if you haven't set it up yet.
 
 Install the [**AEM Sidekick browser extension**](https://www.aem.live/docs/sidekick) for your project as it is helpful for previewing and publishing content updates from your content source (SharePoint or DA) to your Edge Delivery site. Sidekick is not required for using Experience Catalyst itself, which operates independently of the extension.
 
@@ -143,8 +144,6 @@ After this task is finished, you won't get a pull request as in the previous ste
 
 In this step, AEMY will upload the generated documents to your content source (SharePoint or DA).
 
-**Note**: For DA projects, you'll need an IMS token for this step. See [DA Projects: IMS Token Setup](support.md#da-projects-ims-token-setup) if you haven't set it up yet.
-
 1. Create a new issue
 2. **Title**: `Upload content`
 3. **Description**: `Upload the content using this download url [insert the lengthy URL AEMY gave you in the last step] and preview it`.
@@ -215,6 +214,106 @@ Once AEMY is done with this task (Check for `aemy-done` label on the PR):
 
 **Reference**: [Style block command details](aemy-prompts.md#style-block)
 
+## Step 7: Critique
+
+In this step, AEMY will analyze and critique your blocks, providing detailed style feedback to help improve the visual quality and consistency of your migrated content.
+
+### Critique a specific block
+
+To critique a specific block:
+
+1. In your content source folder (SharePoint or DA), go to any document and identify a block you want to critique
+2. Copy the exact block and variant name, like for example: `Columns (columns5)`
+3. On GitHub, create a new issue
+4. **Title**: `Critique block`
+5. **Description**: `Criticize the block [block name (variant name)]` e.g `Criticize the block Columns (columns5)`
+6. **Labels**: `aemy-help`, `aemy-go`
+7. Click **Create**
+
+**Important**: Use the exact block and variant name as they appear in your content document.
+
+<img width="1009" height="824" alt="image" src="https://github.com/user-attachments/assets/4b04bb17-efa9-4b37-96dc-33ca1b060c9f" />
+
+Once AEMY completes the critique task:
+1. Check for the `aemy-done` label on the issue
+2. AEMY will provide style feedback for the block on issue comments
+
+<img width="1009" height="856" alt="image" src="https://github.com/user-attachments/assets/fcd53132-71a2-4290-8b7a-55de60ecf9f2" />
+
+Then, you can use the feedback to improve your styling. For example:
+1. Create a new issue
+2. **Title**: `Style block`
+3. **Description**: `Style block [block name (variant name)] Feedback: [feedback from critique issue]`
+4. **Labels**: `aemy-help`, `aemy-go`
+5. Click **Create**
+
+<img width="1009" height="856" alt="image" src="https://github.com/user-attachments/assets/4672c901-a570-402e-9251-d60ad8d1200a" />
+
+Refer [Style block command details](aemy-prompts.md#style-block) for more details on how to style a block.
+
+**Summary**: With the critique prompts, AEMY analyzes your blocks and provides detailed style feedback, helping you identify areas for improvement and ensuring consistency across your migrated site.
+
+**Reference**: [Critique command details](aemy-prompts.md#critique)
+
+## Step 8: Validate content
+
+In this step, AEMY will validate the content structure and quality of your blocks or pages, ensuring that the migration process preserved the content integrity and providing feedback on any issues found.
+
+### Validate content for a specific block
+
+To validate content for a specific block:
+
+1. In your content source folder (SharePoint or DA), identify a block you want to validate
+2. Copy the exact block and variant name, like for example: `Cards (cards8)`
+3. On GitHub, create a new issue
+4. **Title**: `Validate content for block`
+5. **Description**: `Validate content for block [block name (variant name)]` e.g `Validate content for block Cards (cards8)`
+6. **Labels**: `aemy-help`, `aemy-go`
+7. Click **Create**
+
+**Important**: Use the exact block and variant name as they appear in your content document.
+
+<img width="1009" height="856" alt="image" src="https://github.com/user-attachments/assets/e5aa702b-1be0-4128-b3e9-f6ef7e212cca" />
+
+Once AEMY completes the content validation task:
+1. Check for the `aemy-done` label on the issue
+2. AEMY will provide content differences feedback for the block on issue comments
+
+<img width="1009" height="856" alt="image" src="https://github.com/user-attachments/assets/084df778-aa43-4271-8daa-15f5ca930fe0" />
+
+### Validate content for a specific page
+
+To validate content for an entire page:
+
+1. Create a new issue
+2. **Title**: `Validate content for page`
+3. **Description**: `Validate content for page https://www.wknd-trendsetters.site/faq` (use your original site URL)
+4. **Labels**: `aemy-help`, `aemy-go`
+5. Click **Create**
+
+<img width="1009" height="856" alt="image" src="https://github.com/user-attachments/assets/d16dd0cb-a881-4e37-a745-78557948acaa" />
+
+### Validate content for all pages
+
+To validate content for all pages at once:
+
+1. Create a new issue
+2. **Title**: `Validate content for all pages`
+3. **Description**: `Validate content for all pages`
+4. **Labels**: `aemy-help`, `aemy-go`
+5. Click **Create**
+
+Once AEMY completes the content validation task:
+1. Check for the `aemy-done` label on the issue
+2. AEMY will provide feedback results on the issue in table format and will also open a PR with a `content_validation.json` file containing content differences feedback for the analyzed pages
+3. Review the feedback to identify any content issues or discrepancies between the original and migrated content
+
+<img width="1009" height="856" alt="image" src="https://github.com/user-attachments/assets/2a1a31d5-5bab-48d4-b093-df95205a26e7" />
+
+**Summary**: With the content validation prompts, AEMY analyzes your migrated content and compares it with the original source, helping you identify and resolve any content issues or inconsistencies that may have occurred during the migration process.
+
+**Reference**: [Validate content command details](aemy-prompts.md#validate-content)
+
 ## Next Steps
 
 **Congratulations!** You've successfully migrated a website using Experience Catalyst. This AI-powered approach reduces migration time from months to hours while maintaining full control over the output.
@@ -225,6 +324,7 @@ To understand what happened, explore these key files:
 - `/tools/importer/import.js`: The import script
 - `/tools/importer/parsers`: The block parsers
 - `/tools/importer/transformers`: The HTML transformers
+- `/tools/importer/content_validation.json`: Content validation feedback (generated by validate content step)
 - `/styles/`: Global fonts and styles
 - `/blocks/`: Block implementations and styles
 

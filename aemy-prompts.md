@@ -17,10 +17,12 @@ AEMY prompts must be written precisely as documented. The bot uses pattern match
 | `analyze the website <url>` | Alternative syntax | Also works |
 | `analyze the website <url> by crawling` | Generates site-urls.json by crawling | Can take longer |
 | `validate the site urls` | Validates manually edited URLs | Use after manual edits |
+| `delete site urls` | Delete result from previous run | For new attempts |
 | [**Block inventory**](#block-inventory) |
 | `Block inventory` | Creates inventory.json | Simplified syntax |
 | `generate inventory` | Alternative syntax | Also works |
 | `generate inventory for all site urls` | Includes all URLs | More comprehensive |
+| `delete inventory` | Delete result from previous run | For new attempts |
 | [**Import script**](#import-script) |
 | `Import script` | Generates import.js and parsers | Simplified syntax |
 | `create an import script for the site` | Alternative syntax | More comprehensive |
@@ -37,6 +39,13 @@ AEMY prompts must be written precisely as documented. The bot uses pattern match
 | `Style <block and variant name>` | Style specific block | Use exact inventory name |
 | `style the <block> block` | Alternative syntax | Also works |
 | `style all the blocks on <origin_page_url>` | This will create issues to style all the blocks on a page | Use the source URL, not <site>.aem.page |
+| [**Critique**](#critique) |
+| `Criticize the block <block and variant name>` | Critiques specific block and provides style feedback | Use exact inventory name |
+| `Critique for block <block and variant name>` | Alternative syntax | Also works |
+| [**Validate content**](#validate-content) |
+| `Validate content for block <block and variant name>` | Validates content for specific block and provides content feedback | Use exact inventory name |
+| `Validate content for page <origin_page_url>` | Validates page content and generates a markdown table and content_validation.json with the results | Use the source URL, not <site>.aem.page |
+| `Validate content for all pages` | Validates content for all pages and generates a markdown table and content_validation.json with the results | Uses page templates if pages are more than 5 |
 | [**Utility**](#utility-prompts) |
 | `Create styling issues for all blocks` | Batch issue creation | For manual work |
 | `catalyze the website <url>` | Full automation | Complete workflow |
@@ -161,6 +170,26 @@ Checks all URLs in site-urls.json for accessibility and updates metadata.
 - `aemy-help`
 - `aemy-go`
 
+### delete the site urls
+
+Deletes the site-urls.json and allows for a fresh analyse.
+
+#### Syntax
+```
+Delete the site urls
+```
+or in combination
+```
+Delete the site urls and anaylse the website [URL]
+```
+
+#### Description
+Deletes the file from the repository.
+
+#### Labels Required
+- `aemy-help`
+- `aemy-go`
+
 ---
 
 ## Block inventory
@@ -210,6 +239,26 @@ Notes:
   - The exception to this is if clustering has grouped 2 clusters together when processing a larger URL set
 - Manual changes to move `outliers` into clusters will also be maintained
 - Currently, all URLs will be processed again. We are working on optimizations to skip this re-processing step and speed up incremental mode
+
+### delete the inventory
+
+Deletes the inventory.json and allows for a fresh inventory.
+
+#### Syntax
+```
+Delete the inventory
+```
+or in combination
+```
+Delete the inventory and generate inventory
+```
+
+#### Description
+Deletes the inventory from the repository.
+
+#### Labels Required
+- `aemy-help`
+- `aemy-go`
 
 ---
 
@@ -501,6 +550,92 @@ This will create Github issues to style each block on the page. Note that you mu
 
 ---
 
+## Critique
+
+### Primary syntax: Criticize the block [block and variant name]
+
+Critiques specific block and provides style feedback.
+
+#### Syntax
+```
+Criticize the block [block and variant name]
+```
+
+#### Alternative Syntax
+```
+Critique for block [block and variant name]
+```
+
+#### Description
+Analyzes and critiques specific block, providing detailed style feedback.
+
+#### Parameters
+- **block-name** (required for block critique) - Exact name from inventory.json including variant ID
+
+#### Labels Required
+- `aemy-help`
+- `aemy-go` (recommended)
+
+#### Examples
+
+**Block Critique**
+```
+Criticize the block Hero (hero42)
+```
+or
+```
+Critique for block Hero (hero42)
+```
+
+---
+
+## Validate content
+
+### Primary syntax: Validate content for block [block and variant name]
+
+Validates content for specific block and provides content feedback.
+
+#### Syntax
+```
+Validate content for block [block and variant name]
+```
+
+#### Description
+Validates content differences between original and migrated content for specific blocks or pages, providing detailed content feedback in case of blocks or generating a markdown table and content_validation.json for pages.
+
+#### Parameters
+- **block-name** (required for block validation) - Exact name from inventory.json including variant ID
+- **origin_page_url** (required for page validation) - Use the source URL, not <site>.aem.page
+
+#### Labels Required
+- `aemy-help`
+- `aemy-go` (recommended)
+
+#### Examples
+
+**Single Block Content Validation**
+```
+Validate content for block Hero (hero42)
+```
+
+**Single Page Content Validation**
+```
+Validate content for page https://example.com/about
+```
+
+**All Pages Content Validation**
+```
+Validate content for all pages
+```
+
+#### Notes
+- Uses page templates if pages are more than 5
+- Generates a markdown table containing content validation results.
+- Generates a content_validation.json output file containing content differences feedback for given pages.
+- Use exact inventory name for block validations
+
+---
+
 ## Utility Prompts
 
 ### Create styling issues for all blocks
@@ -524,20 +659,11 @@ Create styling issues for the page https://example.com/about
 #### Description
 Creates individual issues for manual or automated styling of each component.
 
-#### Advanced Mode
-> **_NOTE:_** It's recommended to use the `aemy-merge` label when running this aemy command.
-
-```
-Create styling issues for all blocks in advanced mode
-```
-- Automatically starts processing with critique → style → feedback → restyle cycle
-- Takes ~4x longer but produces better results
-
 #### Labels Required
 - `aemy-help`
-- `aemy-go` (for advanced mode)
+- `aemy-go`
 
-### catalyze the website
+### Catalyze the Website
 
 Runs the complete migration workflow automatically.
 
@@ -570,6 +696,8 @@ Executes all migration steps in sequence:
 5. Upload content
 6. Brand fonts
 7. Style block
+
+If styling a block fails the first time, it will be tried once more.
 
 #### Labels Required
 - `aemy-help`
