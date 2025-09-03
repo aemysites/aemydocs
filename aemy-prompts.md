@@ -238,7 +238,8 @@ Notes:
   - In other words, box instances which were grouped as `Hero (hero1)` should retain this mapping
   - The exception to this is if clustering has grouped 2 clusters together when processing a larger URL set
 - Manual changes to move `outliers` into clusters will also be maintained
-- Currently, all URLs will be processed again. We are working on optimizations to skip this re-processing step and speed up incremental mode
+- Data collection is incremental, meaning only new URLs will be crawled and processed
+- Clustering re-runs on the _complete dataset_ (new and existing URLs) to optimize groupings. We are working on optimizations to make the clustering step even more efficient
 
 ### delete the inventory
 
