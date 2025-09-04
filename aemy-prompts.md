@@ -16,6 +16,8 @@ AEMY prompts must be written precisely as documented. The bot uses pattern match
 | `Analyze <url>` | Generates site-urls.json | Default strategy |
 | `analyze the website <url>` | Alternative syntax | Also works |
 | `analyze the website <url> by crawling` | Generates site-urls.json by crawling | Can take longer |
+| `analyze the website <url> with <url1>, <url2>, <url3>, ...` | Generates site-urls.json by resolving only provided web pages | Good for scoping a project |
+| `analyze the website <url> with <xmlSitemapUrl1>, <xmlSitemap2>, ...` | Generates site-urls.json by processing provided sitemaps | Good for scoping a project or if the site has an unexpected root sitemap or robots.txt |
 | `validate the site urls` | Validates manually edited URLs | Use after manual edits |
 | `delete site urls` | Delete result from previous run | For new attempts |
 | [**Block inventory**](#block-inventory) |
