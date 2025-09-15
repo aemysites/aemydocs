@@ -134,6 +134,8 @@ After setting up the service credentials, you need to grant the technical accoun
      3. **Comment** with the text: `Try again`
    - This will trigger the GitHub Actions workflow to automatically retry uploading the custom block library to your AEM instance
    - **Validate the upload**: Navigate to your AEM instance → Sites → your content tree → it should have `tools` and `block-collection` present and previewed and published as shown in the image below
+     <img width="1371" height="522" alt="Screenshot 2025-09-14 at 9 51 00 PM" src="https://github.com/user-attachments/assets/7289e726-3c48-418e-95a1-23a2d73afe03" />
+
 
 5. **Next Steps - Content Analysis:**
    - Once permissions are configured, follow the [main tutorial](tutorial.md) to begin analyzing your content, generating inventory, and starting the migration process
