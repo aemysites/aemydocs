@@ -125,9 +125,14 @@ After setting up the service credentials, you need to grant the technical accoun
 
 
 4. **Re-run AEMY Setup:**
-   - Navigate to your provisioned GitHub repository and check the closed/open issues
-   - You will find one with the title `AEMY Setup Content` - it will have an `aemy-failed` label on it as the custom block library upload to your AEM instance failed while provisioning since the AEM_SERVICE_CREDENTIALS secret was not yet setup
-   - Re-open this issue and try again since now you have setup your AEM_SERVICE_CREDENTIALS secret in your git repo
+   - Navigate to your provisioned GitHub repository's **Issues** tab
+   - Look for an open/closed issue titled `AEMY Setup Content` with an `aemy-failed` label
+   - This issue was automatically created during initial repository provisioning but failed because the AEM_SERVICE_CREDENTIALS secret wasn't configured at that time
+   - To retry the setup process:
+     1. **Re-open the issue** if it's currently closed
+     2. **Add the following labels**: `aemy-go`, `aemy-help`, and `aemy-merge`
+     3. **Comment** with the text: `Try again`
+   - This will trigger the GitHub Actions workflow to automatically retry uploading the custom block library to your AEM instance
 
 5. **Next Steps - Content Analysis:**
    - Once permissions are configured, follow the [main tutorial](tutorial.md) to begin analyzing your content, generating inventory, and starting the migration process
