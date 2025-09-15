@@ -16,6 +16,7 @@ This guide assumes that the following have been already setup for you as per the
 
 **Required Information:**
 - Provide your AEM URL (e.g., `https://author-p141866-e1455422.adobeaemcloud.com`)
+- Specify "Project type: XWalk"
 
 ### 2. Repository Creation
 
@@ -42,7 +43,7 @@ Before proceeding with authentication setup, you need to create your AEM site us
    - Click **Next**
 
 3. **Configure Site Details:**
-   - **Site Title:** Enter your GitHub repository name (e.g., `sta-xwalk-e2e`)
+   - **Site Title:** Enter your GitHub repository name that was provisioned for you (e.g., `sta-xwalk-e2e`)
    - **Site Name:** Enter the same repository name (e.g., `sta-xwalk-e2e`)
    - **GitHub Repository URL:** Provide the full URL of your GitHub repository (e.g., `https://github.com/aemdemos/sta-xwalk-e2e`)
    
@@ -95,7 +96,7 @@ To enable automated content synchronization, you need to set up authentication b
 
 ### 5. Configure Technical Account Permissions in AEM
 
-After setting up the service credentials, you need to grant the technical account proper permissions in AEM to enable content synchronization.
+After setting up the service credentials, you need to grant the technical account proper permissions in AEM to enable uploads using AEMY.
 
 #### Steps:
 
