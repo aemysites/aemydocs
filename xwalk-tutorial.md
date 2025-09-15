@@ -133,6 +133,7 @@ After setting up the service credentials, you need to grant the technical accoun
      2. **Add the following labels**: `aemy-go`, `aemy-help`, and `aemy-merge`
      3. **Comment** with the text: `Try again`
    - This will trigger the GitHub Actions workflow to automatically retry uploading the custom block library to your AEM instance
+   - **Validate the upload**: Navigate to your AEM instance → Sites → your content tree → it should have `tools` and `block-collection` present and previewed and published as shown in the image below
 
 5. **Next Steps - Content Analysis:**
    - Once permissions are configured, follow the [main tutorial](tutorial.md) to begin analyzing your content, generating inventory, and starting the migration process
