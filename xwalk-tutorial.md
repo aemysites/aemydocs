@@ -109,12 +109,20 @@ After setting up the service credentials, you need to grant the technical accoun
    - Go to the [Adobe Admin Console](https://adminconsole.adobe.com/)
    - Navigate to your organization and select Adobe Experience Manager as a Cloud Service
    - Select your AEM author instance
+     <img width="1039" height="463" alt="Screenshot 2025-09-14 at 9 20 28 PM" src="https://github.com/user-attachments/assets/9daa0341-9de6-4e71-adce-2f5fcdd80cad" />
+
 
 3. **Add Technical Account to AEM Administrators:**
    - Find the **AEM Administrators - author - Program xxxxxx - Environment xxxxxxx** product profile
    - Add the technical account email from step 1 to this product profile
    - This will grant the necessary permissions for AEMY uploads
    - Validate that the technical account is added by navigating to the `API Credentials` tab
+     <img width="1507" height="518" alt="Screenshot 2025-09-14 at 9 21 54 PM" src="https://github.com/user-attachments/assets/e67baf96-4104-4884-af7c-1c8b06ae3602" />
+
+     <img width="1105" height="694" alt="Screenshot 2025-09-14 at 9 23 28 PM" src="https://github.com/user-attachments/assets/cc5ee670-8b63-457c-ad90-ab040e16d9d9" />
+     
+     <img width="1544" height="271" alt="Screenshot 2025-09-14 at 9 24 46 PM" src="https://github.com/user-attachments/assets/8deaa47a-ae62-4e11-840e-73b0defb3ef6" />
+
 
 4. **Next Steps - Content Analysis:**
    - Once permissions are configured, follow the [main tutorial](tutorial.md) to begin analyzing your content, generating inventory, and starting the migration process
