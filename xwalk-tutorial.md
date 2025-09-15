@@ -105,17 +105,16 @@ After setting up the service credentials, you need to grant the technical accoun
    - Find the `integration.email` value (e.g., `12345678-abcd-9000-efgh-0987654321c@techacct.adobe.com`)
    - This is the login name for the technical account AEM user
 
-2. **Configure User Permissions in AEM:**
-   - Log into your AEM author instance as an AEM Administrator
-   - Navigate to **Tools** > **Security** > **Users**
-   - Search for and locate the AEM user with the **Login Name** from step 1
-   - Open the user's **Properties**
+2. **Access the Admin Console:**
+   - Go to the [Adobe Admin Console](https://adminconsole.adobe.com/)
+   - Navigate to your organization and select Adobe Experience Manager as a Cloud Service
+   - Select your AEM author instance
 
-3. **Add to DAM Users Group:**
-   - Navigate to the **Groups** tab
-   - Add the technical account to the **DAM Users** group (this provides write access to assets)
-   - You may also need to add other appropriate groups depending on your content structure and permissions requirements
-   - Click **Save and Close**
+3. **Add Technical Account to AEM Administrators:**
+   - Find the **AEM Administrators - author - Program xxxxxx - Environment xxxxxxx** product profile
+   - Add the technical account email from step 1 to this product profile
+   - This will grant the necessary permissions for AEMY uploads
+   - Validate that the technical account is added by navigating to the `API Credentials` tab
 
 4. **Next Steps - Content Analysis:**
    - Once permissions are configured, follow the [main tutorial](tutorial.md) to begin analyzing your content, generating inventory, and starting the migration process
@@ -126,7 +125,6 @@ After setting up the service credentials, you need to grant the technical accoun
 ### Common Issues:
 
 - **Authentication Problems:** Verify that your GitHub secrets are correctly configured and that the technical account has appropriate permissions
-- **Content Sync Issues:** Check the fstab configuration and ensure the content paths are correctly mapped
 - **Site Template Problems:** Ensure you're using the latest version of the crosswalk template
 
 ### Support Resources:
