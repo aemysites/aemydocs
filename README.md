@@ -26,11 +26,13 @@ Collaborate with Aemy, our GitHub integrated AI Agent.
   - **[SharePoint demo video](https://adobe.sharepoint.com/:v:/s/AEMDemos/EcBetvTtRG9OuISZgF8czQkBheNgsTf28DhEg9LN-VDVEw)**
   - **[DA demo video](https://adobe.sharepoint.com/:v:/s/AEMDemos/EeN2Etb2EBZFugvRlvS3g2gBHeobvFnmQUPJCbTiIsjksw)**
 
-### Key resources
+### Additional resources
 
 - [What is Edge Delivery Services?](https://www.aem.live/) - Adobe's modern web delivery platform
 - [AEMY Reference](aemy-reference.md) - Understanding the AI assistant and migration workflow
-- [AEMY Prompt Reference](aemy-prompts.md) - Complete command syntax
+- [AEMY Prompts](aemy-prompts.md) - Complete command syntax
+- [Resetting Your Project](backup-and-reset.md) - Automated backup and reset of an AEMY project
+- [FAQs](faqs.md)
 
 ---
 
